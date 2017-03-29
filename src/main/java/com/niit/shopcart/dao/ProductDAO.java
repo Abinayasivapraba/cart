@@ -11,6 +11,7 @@ public interface ProductDAO {
 	
 	public boolean delete (ProductModel productModel);
 	public boolean delete (int proId);
+	//public boolean deleteproductModelById(int proId);
 	
 	
 	

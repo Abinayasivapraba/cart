@@ -31,6 +31,10 @@
   	{
   	window.location="selDeleteProduct";
   	}
+  	if(form_value=="ViewProduct")
+  	{
+  	window.location="selViewProduct";
+  	}
   }
   	function dFunc()
     {
@@ -90,6 +94,7 @@
         <option value="AddProduct">Add</option>
         <option value="EditProduct">Edit</option>
         <option value="DeleteProduct">Delete</option>
+        <option value="ViewProduct">View</option>
               </select>
               </div></div>
               </div>

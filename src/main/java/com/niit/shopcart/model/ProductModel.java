@@ -3,21 +3,33 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 @Entity
 @Component
 @Table(name="ProductModel")
 public class ProductModel {
-	@Id
+	
 	//@GeneratedValue(strategy= GenerationType.AUTO,generator="proId") 
-	int proId;
+	
+	@Transient
+	MultipartFile pimage;
+	public MultipartFile getPimage() {
+		return pimage;
+	}
+	public void setPimage(MultipartFile pimage) {
+		this.pimage = pimage;
+	}
 	String proName;
 	int supId;
 	int catId;
 	String proDesc;
 	int proQuan;
 	int proCost;
+	@Id
+	int proId;
 	@Column(name="PROID")
 	public int getProId() {
 		return proId;

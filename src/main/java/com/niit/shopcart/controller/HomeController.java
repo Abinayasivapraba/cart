@@ -1,17 +1,32 @@
 package com.niit.shopcart.controller;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
+
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 //import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.niit.shopcart.dao.UserDAO;
+import com.niit.shopcart.model.User;
 @Controller
 public class HomeController {
 	//http://localhost:8080/shopcart/
 	@Autowired
 	private HttpSession session;
+	@Autowired
+	UserDAO userDAO;
+	@Autowired
+	User user;
+	@Autowired
+	UserController userController;
 	
 	
 	@RequestMapping("/")
@@ -31,80 +46,19 @@ public class HomeController {
 		mv.addObject("msg","WELCOME TO SHOPPING CART");
 		return mv;
 	}
-	
-	
 	@RequestMapping("/Login")
 	public ModelAndView showLoginPage()
 	{
-		//Which Page To Navigate
-		ModelAndView mv = new ModelAndView("/Login");
-		mv.addObject("isUserClickedLogin", "true");
-		return mv;
-	}
-	
-	
-	
-	
-	@RequestMapping("/validateLogin")
-	public ModelAndView validateLoginPage(@RequestParam("id") String uid,@RequestParam("key")String psw)
-	{
-		ModelAndView mv = new ModelAndView("/Login");
-		if(uid.equals("NIIT") && psw.equals("NIIT"))
-		{
-			mv.addObject("compareT", "Validation Success");
-			session.setAttribute("UID", "Welcome:" +uid);
-		}
-		else
-		{
-			mv.addObject("compareF", "Wrong Credentials");
-		}
-		return mv;
-	}
-	
-	@RequestMapping("/Logout")
-	public ModelAndView logout()
-	{
-		ModelAndView mv = new ModelAndView("/Login");
-		session.removeAttribute("UID");
+		ModelAndView mv = new ModelAndView("/Login","command",new User());
 		return mv;
 	}
 	@RequestMapping("/Register")
 	public ModelAndView showRegisterPage()
 	{
-		//Which Page To Navigate
-		ModelAndView mv = new ModelAndView("/Register");
-		mv.addObject("isUserClickedRegister", "true");
+		ModelAndView mv = new ModelAndView("/Register","command",new User());
 		return mv;
 	}
-	@RequestMapping("/validateRegister")
-	public ModelAndView validateRegisterPage(@RequestParam("fname") String fname,@RequestParam("lname") String lname,@RequestParam("email")String email,@RequestParam("rkey")String rkey,@RequestParam("ckey")String ckey)
-	{
-		ModelAndView mv = new ModelAndView("/Register");
-		if(fname=="")
-		{
-			mv.addObject("fname", "first name not entered");
-		}
-		if(lname=="")
-		{
-			mv.addObject("lname", "last name not entered");
-		}
-		
-		
 	
-		if(email=="")
-		{
-			mv.addObject("mail", " mail not entered");
-		}
-		if(rkey=="")
-		{
-			mv.addObject("psw", "password  not entered");
-		}
-		if(ckey=="")
-		{
-			mv.addObject("cpsw", "confirm password not entered");
-		}
-		return mv;
-	}
 	
 	@RequestMapping("/Aboutus")
 		public ModelAndView showAboutusPage()
@@ -132,6 +86,43 @@ public class HomeController {
 		mv.addObject("isUserClickedAdmin", "true");
 		return mv;
 	}
+
+@RequestMapping(value = "/editUser", method = RequestMethod.GET)
+@Transactional
+public ModelAndView showEditProduct(@RequestParam("editrow")String id,@ModelAttribute User user)
+{
+	user=userDAO.getUserById(id);
+	System.out.println("In Mv Before Update");
+	ModelAndView mv = new ModelAndView("/ValRegister","command", new User());
+	List<User> userList = userController.fetchUserList();
+	user = userDAO.getUserById(id);
+	mv.addObject("successList",userList);
+	mv.addObject("L", user);
+	mv.addObject("UID", id);
+	mv.addObject("FNAME", user.getFname());
+	mv.addObject("LNAME", user.getLname());
+	mv.addObject("UMAIL", user.getEmail());
+	mv.addObject("PASS", user.getPassword());
+	mv.addObject("CPASS", user.getConfirmpassword());
+	session.setAttribute("updateUser", "updated");
+	session.removeAttribute("addUser");
+	return mv;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	}
 
 	

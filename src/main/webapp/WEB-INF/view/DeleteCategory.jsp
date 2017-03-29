@@ -11,11 +11,39 @@
 <script type="text/javascript" src="js/valid.js"></script>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+  
+  
   
 <title>Insert title here</title>
 </head>
 <body>
-<form action="DeleteCategory">
+<h1>Delete Supplier</h1>
+<div class="container">
+  <h2>Available Products</h2>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Category Id</th>
+        <th>Category Name</th>
+        <th>Category Description</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${caList}" var="cList">
+      <tr>
+        <td><c:out value="${cList.catid}" /></td>
+        <td><c:out value="${cList.catname}" /></td>
+        <td><c:out value="${cList.catdesc}" /></td>
+        
+      </tr>
+       </c:forEach>
+        </tbody>
+  </table>
+</div>
+
+<form action="deleteCategory">
 <h2>Enter Category ID : </h2>
 <input type="text" name="catid" path="catid"/> 
 <input type="submit" value="Delete">

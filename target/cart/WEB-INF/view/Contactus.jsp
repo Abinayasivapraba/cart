@@ -15,6 +15,15 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="container">
+<div class="row">
+<div class="col-xs-6 col-sm-6 col-md-6">
+<div class="form-login">
+
+ <div class="panel panel-primary" style="width:750px;margin:0px auto">
+
+              <div class="panel-heading">ABOUT US</div>
+              <div class="panel-body">
 <div class="jumbotron jumbotron-sm">
     <div class="container">
         <div class="row">
@@ -22,6 +31,11 @@
                 <h1 class="h1">Contact us <small>Feel free to contact us</small></h1>
             </div>
         </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
 
 <jsp:include page="CommonFooter.jsp"></jsp:include>

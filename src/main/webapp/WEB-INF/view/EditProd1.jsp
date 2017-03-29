@@ -13,25 +13,26 @@
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-<title>Insert title here</title>
-</head>
-<body>
-
+<title>Edit Product</title>
 <style>
 table, th, td {
    border: 1px solid black;
 }
 </style>
+</head>
+<body>
+
+
 
 
 <center>
 <table>
 <tr>
 <th>Product ID</th>
-<th>Product Name</th>
+ <th>Product Name</th>
 <th>Product Description</th>
 <th>Supplier ID</th>
-<th>Category Id</th>
+<th>Category Id</th> 
 <th>Product Quantity</th>
 <th>Product Cost</th>
 </tr>
@@ -41,20 +42,23 @@ table, th, td {
         <td><c:out value="${prFound.proDesc}" /></td>
         <td><c:out value="${prFound.supId}" /></td>
         <td><c:out value="${prFound.catId}" /></td>
+   
+        
         <td><c:out value="${prFound.proQuan}" /></td>
         <td><c:out value="${prFound.proCost}" /></td>
       </tr>
 </table>
 <br>
 <br>
-<form:form action="EditProduct" method="post" modelattribute="product">
-Product ID:<form:input path="proId"/><br>
-Product Name:<form:input path="proName"/><br>
-Product Description:<form:input path="proDesc"/><br>
-Supplier ID:<form:input path="supId"/><br>
-Category ID:<form:input path="catId"/><br>
-Product Quantity:<form:input path="proQuan"/><br>
-Product Cost:<form:input path="proCost"/><br>
+<form:form action="Editproduct" method="post" modelattribute="product">
+Product ID:<input type="text" path="proId" id="proId" name="proId" value="${prFound.proId}" disbled="disabled"  >
+<%-- <input type="text" id="proId" name="proId" value="${prFound.proId}"><br> --%>
+Product Name:<input type="text" path="proName" id="proName" name="proName" value="${prFound.proName}" disbled="disabled">
+Product Description:<input type="text" path="proDesc"  id="proDesc" name="proDesc" value="${prFound.proDesc}" disbled="disabled">
+Supplier ID:<input type="text" id="supId" path="supId" name="supId" value="${prFound.supId}" disbled="disabled">
+Category ID:<input type="text" id="catId" path="catId" name="catId" value="${prFound.catId}" disbled="disabled">
+Product Quantity:<input type="text" path="proQuan" name="proQuan" id="proQuan" value="${prFound.proQuan}"><br>
+Product Cost:<input type="text" path="proCost" name="proCost" id="proCost" value="${prFound.proCost}"><br>
 <input type="submit" value="Edit">
 
 

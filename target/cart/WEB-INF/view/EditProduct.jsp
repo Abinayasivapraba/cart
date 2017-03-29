@@ -14,16 +14,16 @@
 
 
 
-    <style>
+    <!-- <style>
 table, th, td {
    border: 1px solid black;
 }
-</style>
+</style> -->
 </head>
 <body>
 
 
- <center>
+  <center>
 <h1>Edit Product</h1>
 <div class="container">
   <h2>Available Products</h2>            
@@ -55,12 +55,13 @@ table, th, td {
   </table>
 </div>
 
-<form action="findProduct">
+ 
+ <form action="findProduct">
 <h2>Enter Product ID : </h2>
-<input type="text" name="proId" /> 
+<input type="text" name="proId"   /> 
 <input type="submit" value="Edit">
 </form>
-</center>
+
 
 </body>
 </html>

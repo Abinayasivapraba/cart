@@ -36,7 +36,7 @@
 
 		<beans:property name="packagesToScan">
 			<beans:list>
-				<beans:value>com.niit.shopcart</beans:value>
+				<beans:value>com.niit.shopcart.model</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>

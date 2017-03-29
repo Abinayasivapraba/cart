@@ -8,15 +8,20 @@ http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd
 http://www.springframework.org/schema/mvc 
 http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       <mvc:annotation-driven/>
+       <mvc:resources location="/resources/images" mapping="/resources/**"/>
  
      
-       <context:component-scan base-package="com.niit" />
+       <context:component-scan base-package="com.niit.shopcart" />
      
        <bean id="viewResolver"
        class="org.springframework.web.servlet.view.UrlBasedViewResolver">
        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>             
        <property name="prefix" value="/WEB-INF/view/"/>   
              <property name="suffix" value=".jsp"/>
+       </bean>
+       <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="100000" />
        </bean>
       <mvc:annotation-driven/>
       <mvc:default-servlet-handler/>

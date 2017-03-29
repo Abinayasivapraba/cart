@@ -15,6 +15,17 @@
 </head>
 <body>
 <div class="container">
+<div class="row">
+<div class="col-xs-6 col-sm-6 col-md-6">
+<div class="form-login">
+
+ <div class="panel panel-primary" style="width:750px;margin:0px auto">
+
+              <div class="panel-heading">ABOUT US</div>
+              <div class="panel-body">
+
+
+<div class="container">
     <div class="row">
         <div class="col-xs-12 col-md-6">
             <div class="well well-sm">
@@ -100,6 +111,11 @@
             </div>
         </div>
     </div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.shopcart.dao.CategoryDAO;
 import com.niit.shopcart.model.Category;
+import com.niit.shopcart.model.ProductModel;
 @Controller
 public class CategoryController {
 	
@@ -28,12 +29,12 @@ public class CategoryController {
 		}
 		@Transactional
 		@RequestMapping("/validateAddCategory")
-		public ModelAndView addCategFunction(@ModelAttribute Category category)
+		public ModelAndView addCategoryFunc(@ModelAttribute Category category)
 		{
 			System.out.println("Inside add Category function");
 			categoryDAO.save(category);
 			ModelAndView mv= new ModelAndView("/admin");
-			mv.addObject("msg", "Category ADDED");
+			mv.addObject("msg", "Category gets Added");
 			return mv;
 		}
 		@Transactional
@@ -56,19 +57,19 @@ public class CategoryController {
 		}
 		@Transactional
 		@RequestMapping(value="/EditCategory",  method = RequestMethod.POST)
-		public ModelAndView editCategoryFunction(@ModelAttribute Category category)
+		public ModelAndView editCategoryFunc(@ModelAttribute Category category)
 		{
 			System.out.println("Inside Category Product");
 			categoryDAO.update(category);
 			ModelAndView mv= new ModelAndView("/admin");
-			mv.addObject("msg", "Category Edited");
+			mv.addObject("msg", "Category gets Edited");
 			return mv;
 		}
 
 
-		@Transactional
+		/*@Transactional
 		@RequestMapping("/selDeleteCategory")
-		public ModelAndView deleteCategoryFunction()
+		public ModelAndView showdeleteCategoryPage()
 		{
 			ModelAndView mv=new ModelAndView("/DeleteCategory");
 			return mv;
@@ -79,8 +80,25 @@ public class CategoryController {
 		{
 			categoryDAO.delete(catid);
 			ModelAndView mv=new ModelAndView("/admin");
+			return mv;*/
+		@Transactional
+		@RequestMapping("/selDeleteCategory")
+		public ModelAndView showDeleteCategoryPage(Map<String, Object> map)
+		{
+			List<Category> catList=categoryDAO.getAllCategory();
+			map.put("caList", catList );
+			ModelAndView mv=new ModelAndView("/DeleteCategory",map);
+			return mv;
+		}
+		@Transactional
+		@RequestMapping("/deleteCategory")
+		public ModelAndView deleteCategory(@RequestParam("catid") int catid)
+		{
+			categoryDAO.delete(catid);
+			ModelAndView mv=new ModelAndView("/admin","command", new Category() );
 			return mv;
 
 		}
+
 
 }

@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>Header</title>
 
 .
 </head>
@@ -27,6 +27,8 @@
 <li><a href="Aboutus">Aboutus</a></li>
 <li><a href="Contactus">Contactus</a></li>
 <li><a href="admin">admin</a></li>
+<li><a href="Products">Products</a></li>
+<li><a href="Add to Cart">Add to Cart</a></li>
 </ul>
 </div>
 </nav>

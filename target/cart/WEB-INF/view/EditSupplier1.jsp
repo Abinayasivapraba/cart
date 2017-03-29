@@ -20,7 +20,7 @@
 <tr>
 <th>Supplier ID</th>
 <th>Supplier Name</th>
-<th>Supplier Description</th>
+<th>Supplier Address</th>
 
 </tr>
       <tr>
@@ -34,7 +34,7 @@
 <form:form action="EditSupplier" method="post" modelattribute="supplier">
 Supplier ID:<form:input path="supid"/><br>
 Supplier Name:<form:input path="supname"/><br>
-Supplier Description:<form:input path="supaddress"/><br>
+Supplier Address:<form:input path="supaddress"/><br>
 <input type="submit" value="Edit">
 
 

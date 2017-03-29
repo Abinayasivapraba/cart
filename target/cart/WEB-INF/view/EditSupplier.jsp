@@ -27,7 +27,7 @@ table, th, td {
       <tr>
         <th>Supplier Id</th>
         <th>Supplier Name</th>
-        <th>Supplier Description</th>
+        <th>Supplier Address</th>
         
       </tr>
     </thead>

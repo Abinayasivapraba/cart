@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.shopcart.dao.SupplierDAO;
+import com.niit.shopcart.model.Category;
 import com.niit.shopcart.model.Supplier;
 
 @Controller
@@ -29,17 +30,17 @@ public class SupplierController {
 	}
 	@Transactional
 	@RequestMapping("/validateAddSupplier")
-	public ModelAndView addSupplierFunction(@ModelAttribute Supplier supplier)
+	public ModelAndView addSupplierFunc(@ModelAttribute Supplier supplier)
 	{
 		System.out.println("Inside add Supplier function");
 		supplierDAO.save(supplier);
 		ModelAndView mv= new ModelAndView("/admin");
-		mv.addObject("msg", "Supplier ADDED");
+		mv.addObject("msg", "Supplier gets Added");
 		return mv;
 	}
 	@Transactional
 	@RequestMapping("/selEditSupplier")
-	public ModelAndView showEditCategory(Map<String, Object> map)
+	public ModelAndView showEditCategoryPage(Map<String, Object> map)
 	{
 		List<Supplier> suppList=supplierDAO.getAllSupplier();
 		map.put("supList", suppList );
@@ -57,19 +58,19 @@ public class SupplierController {
 	}
 	@Transactional
 	@RequestMapping(value="/EditSupplier",  method = RequestMethod.POST)
-	public ModelAndView editSupplierFunction(@ModelAttribute Supplier supplier)
+	public ModelAndView editSupplierFunc(@ModelAttribute Supplier supplier)
 	{
 		System.out.println("Inside Supplier Function");
 		supplierDAO.update(supplier);
 		ModelAndView mv= new ModelAndView("/admin");
-		mv.addObject("msg", "Supplier Edited");
+		mv.addObject("msg", "Supplier gets Edited");
 		return mv;
 	}
 
 
-	@Transactional
+	/*@Transactional
 	@RequestMapping("/selDeleteSupplier")
-	public ModelAndView deleteSupplierFunction()
+	public ModelAndView deleteSupplierFunc()
 	{
 		ModelAndView mv=new ModelAndView("/DeleteSupplier");
 		return mv;
@@ -80,6 +81,25 @@ public class SupplierController {
 	{
 		supplierDAO.delete(supid);
 		ModelAndView mv=new ModelAndView("/admin");
+		return mv;
+
+	}*/
+
+	@Transactional
+	@RequestMapping("/selDeleteSupplier")
+	public ModelAndView showDeleteSupplierPage(Map<String, Object> map)
+	{
+		List<Supplier> suppList=supplierDAO.getAllSupplier();
+		map.put("supList", suppList );
+		ModelAndView mv=new ModelAndView("/DeleteSupplier",map);
+		return mv;
+	}
+	@Transactional
+	@RequestMapping("/deleteSupplier")
+	public ModelAndView deleteSupplier(@RequestParam("supid") int supid)
+	{
+		supplierDAO.delete(supid);
+		ModelAndView mv=new ModelAndView("/admin","command", new Supplier() );
 		return mv;
 
 	}

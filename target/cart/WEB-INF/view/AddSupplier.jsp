@@ -7,16 +7,50 @@
 <title>Supplier</title>
 <%@ taglib  uri="http://www.springframework.org/tags/form" prefix="form"%>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/valid.js"></script>
+<title>Supplier</title>
+<jsp:include page="CommonHeader.jsp"></jsp:include> 
 </head>
 <body>
-
-<center><p>Enter the Supplier Details</p>
-<form:form method="post" action="validateAddSupplier" >
-ID : <form:input path="supid"/><br>
-Name : <form:input path="supname"/><br>
-Address : <form:input path="supaddress"/><br>
-<input type="submit" value="Add">
+<div class="container">
+ <div class="panel panel-primary" style="width:750px;margin:0px auto">
+<div class="panel-heading">ADD SUPPLIER</div>
+<div class="panel-body">
+  <div class="row">
+  	  	
+  	<form:form action="validateAddSupplier" method ="post">
+  	
+  	<div class="col-xs-6">
+    <div class="input-group">
+   
+	<span class="input-group-addon">Supplier Id </span>
+      <form:input type="text" class="form-control" path="supid" id="supid" placeholder="Enter Category ID"/>
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-addon"> Supplier Name </span>
+      <form:input type="text" class="form-control" path="supname" id="supname" placeholder="Enter Supplier Name"/>
+    </div>
+    <br>
+    
+    <div class="input-group">
+     <span class="input-group-addon">Supplier Address </span>
+      <form:input type="text" class="form-control" path="supaddress" id="supaddress" placeholder="Enter Supplier Address"/>
+    </div>
+    <br>
+           
+    <br>
+    
+    <form:button type="submit" class="btn btn-default"> Add </form:button>
+    
+    </div>
 </form:form>
-</center>
+  
+
+
+
 </body>
 </html>
