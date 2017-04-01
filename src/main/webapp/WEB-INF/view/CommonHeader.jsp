@@ -8,9 +8,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js"></script>
+<%@ taglib uri= "http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <title>Header</title>
 
-.
+
 </head>
 <body>
 
@@ -23,12 +25,17 @@
 <ul class="nav navbar-nav">
 <li class="active"><a href="Home">Home</a></li>
 <li><a href="Login">Login</a></li>
+ <c:if test="${not empty UID}">
+ <a href="Logout">Logout</a>
+</c:if>
+
+
 <li><a href="Register">Register</a></li>
 <li><a href="Aboutus">Aboutus</a></li>
 <li><a href="Contactus">Contactus</a></li>
 <li><a href="admin">admin</a></li>
 <li><a href="Products">Products</a></li>
-<li><a href="Add to Cart">Add to Cart</a></li>
+<li><a href="ProductView">ProductView</a></li>
 </ul>
 </div>
 </nav>

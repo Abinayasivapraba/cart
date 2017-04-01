@@ -220,15 +220,15 @@ public class UserController {
 		return mv;
 	}
 	@Transactional
-	@RequestMapping("/Add to Cart")
-	public ModelAndView goToCart(Map<String, Object> map)
+	@RequestMapping("/ProductView")
+	public ModelAndView viewProduct(Map<String, Object> map)
 	{
 		System.out.println("Start of method AddToCart");
 		String path="D:\\Users\\Abinaya\\workspace\\cart\\src\\main\\webapp\\resources\\images\\";
 		List<ProductModel> prodList=productDAO.getAllProductModel();
 		map.put("prList", prodList );
 		map.put("path", path);
-		ModelAndView mv=new ModelAndView("/Add to Cart",map);
+		ModelAndView mv=new ModelAndView("/ProductView",map);
 		System.out.println("End of method AddToCart");
 		return mv;
 	}

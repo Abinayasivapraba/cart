@@ -28,9 +28,9 @@
 
 <center>${UID}</center>
 
- <c:if test="${not empty UID}">
+ <%-- <c:if test="${not empty UID}">
  <a href="Logout">Logout</a>
-</c:if>
+</c:if> --%>
 
  <c:if test="${empty UID}">
  <a href="Login">Login</a>
