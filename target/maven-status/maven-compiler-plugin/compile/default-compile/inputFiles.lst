@@ -4,6 +4,7 @@ D:\Users\Abinaya\workspace\cart\src\main\java\com\niit\shopcart\model\Supplier.j
 D:\Users\Abinaya\workspace\cart\src\main\java\com\niit\shopcart\dao\impl\ProductDAOImpl.java
 D:\Users\Abinaya\workspace\cart\src\main\java\com\niit\shopcart\controller\CategoryController.java
 D:\Users\Abinaya\workspace\cart\src\main\java\com\niit\shopcart\dao\SupplierDAO.java
+D:\Users\Abinaya\workspace\cart\src\main\java\com\niit\shopcart\controller\CartController.java
 D:\Users\Abinaya\workspace\cart\src\main\java\com\niit\shopcart\dao\CategoryDAO.java
 D:\Users\Abinaya\workspace\cart\src\main\java\com\niit\shopcart\dao\ProductDAO.java
 D:\Users\Abinaya\workspace\cart\src\main\java\com\niit\shopcart\dao\CartDAO.java

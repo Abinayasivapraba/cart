@@ -27,7 +27,7 @@
     <div class="input-group">
    
 	<span class="input-group-addon">Supplier Id </span>
-      <form:input type="text" class="form-control" path="supid" id="supid" placeholder="Enter Category ID"/>
+      <form:input type="text" class="form-control" path="supid" id="supid" placeholder="Enter Supplier ID"/>
     </div>
     <br>
     <div class="input-group">

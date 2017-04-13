@@ -45,8 +45,8 @@ table, th, td {
         <td><c:out value="${pList.proId}" /></td>
         <td><c:out value="${pList.proName}" /></td>
         <td><c:out value="${pList.proDesc}" /></td>
-        <td><c:out value="${pList.supId}" /></td>
-        <td><c:out value="${pList.catId}" /></td>
+        <td><c:out value="${pList.supid}" /></td>
+        <td><c:out value="${pList.catid}" /></td>
         <td><c:out value="${pList.proQuan}" /></td>
         <td><c:out value="${pList.proCost}" /></td>
       </tr>

@@ -14,6 +14,18 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstap.min.js"></script>
 <%@ taglib  uri="http://www.springframework.org/tags/form" prefix="form"%>
+<style>
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+</style>
 
 <jsp:include page="CommonHeader.jsp"></jsp:include>
 </head>
@@ -22,96 +34,6 @@
 
 
 <form action="validateregister" name="Register" method="post">
-<%-- <center>${FNAME }</center> 
-<center>${LNAME}</center>
-<center>${MAIL }</center>
-<center>${PSW }</center>
-<center>${CPSW}</center>
-<div class="container">
-<div class="row">
-<div class="col-xs-6 col-sm-6 col-md-6">
-<div class="form-login">
-
- <div class="panel panel-primary" style="width:750px;margin:0px auto">
-
-              <div class="panel-heading">REGISTER</div>
-              <div class="panel-body">
-
-<div class="container">
-        <div class="row centered-form">
-        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-2">
-        	<div class="panel panel-default">
-        		<div class="panel-heading">
-			    		<h3 class="panel-title"> Sign up  <small>It's free!</small></h3>
-			 			</div>
-			 			<div class="panel-body">
-			    		<form role="form">
-			    			<div class="row">
-			    				<div class="col-xs-6 col-sm-6 col-md-6">
-			    					<div class="form-group">
-			                <input type="text" name="fname" id="fname" path="fname" value="${FNAME}" class="form-control value input-sm" placeholder="First Name">
-			    					</div>
-			    				</div>
-			    				<div class="col-xs-6 col-sm-6 col-md-6">
-			    					<div class="form-group">
-			    						<input type="text" name="lname" id="lname" path="lname" value="${LNAME}" class="form-control input-sm" placeholder="Last Name">
-			    					</div>
-			    				</div>
-			    			</div>
-<!-- 			    			<div class="col-xs-6 col-sm-6 col-md-6"> -->
-			    					<div class="form-group">
-			    						<input type="text" name="id" id="id" path="id"  class="form-control input-sm" placeholder="USERID">
-			    					</div>
-			    				</div>
-			    			</div>
-			    			
-
-			    			<div class="form-group">
-			    				<input type="email" name="email" id="email" path="email" value="${MAIL}" class="form-control input-sm" placeholder="Email Address">
-			    			</div>
-
-			    			<div class="row">
-			    				<div class="col-xs-6 col-sm-6 col-md-6">
-			    					<div class="form-group">
-			    						<input type="password" name="password" id="password" path="password" value="${PSW}" class="form-control input-sm" placeholder="Password">
-			    					</div>
-			    				</div>
-			    				<div class="col-xs-6 col-sm-6 col-md-6">
-			    					<div class="form-group">
-			    						<input type="password" name="confirmpassword" id="confirmpassword" path="confirmpassword" value="${CPSW}"  class="form-control input-sm" placeholder="Confirm Password">
-			    					</div>
-			    				</div>
-			    			</div>
-                                         <div class="form-group">
-						
-						<input type="text" id="contact" name="contact" path="contact" class="form-control input-sm" placeholder="Phone Number">
-						<span id="error_phone" class="text-danger"></span>
-					</div>
-					<<!-- div class="form-group">
-					<input type="text" id="address" name="address" class="form-control input-sm" rows="3" placeholder="Address">
-						
-						<textarea class="form-control" rows="3"></textarea>
-					</div> -->
-			    			
-			    			<input type="submit" value="Register" class="btn btn-info btn-block">
-			    		
-			    		</form>
-			    	</div>
-	    		</div>
-    		</div>
-    	</div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-
-<!-- <button type="submit" class="btn btn-success btn-lg">Register</button> -->
-<!-- <button type="reset" class="btn btn-success btn-lg ">Reset</button> -->
-
- --%>
  <div class="container" >
     	<div class="row">
 			<div class="col-md-12">
@@ -120,7 +42,7 @@
 						<div class="row">
 							<div class="col-lg-12">
 							<h1>Register Here</h1>
-							<hr>
+							<hr class="colorgraph">
 								<form:form id="REGISTER-form" action="validateregister" method="post" role="form" style="display: block;">
 									<div class="form-row">
 										<div class='col-xs-6 form-group'>
@@ -167,6 +89,7 @@
 										    </small>
 										</div>
 									</div>
+									<hr class="colorgraph">
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">

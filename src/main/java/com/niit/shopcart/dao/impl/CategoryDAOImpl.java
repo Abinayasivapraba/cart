@@ -68,13 +68,13 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	public Category getCategoryByID(int catid) {
 		
-		return(Category) sessionFactory.getCurrentSession().createQuery("from Category where id ="+catid +"" ).uniqueResult();
+		return(Category) sessionFactory.getCurrentSession().createQuery("from Category where  catid ='"+ catid +"'" ).uniqueResult();
 		
 	}
 
 	public Category getCategoryByName(String catname) {
 		
-		return (Category) sessionFactory.getCurrentSession().createQuery("from Category where id ="+ catname +"" ).list().get(0);
+		return (Category) sessionFactory.getCurrentSession().createQuery("from Category where catname ='"+ catname +"'" ).list().get(0);
 		
 	}
 

@@ -117,7 +117,13 @@
 </div>
 </div>
 </div>
-
+<!-- <div class="center">
+<img src="images/Aboutus.jpg">
+</div> -->
+ <div class="center">  
+        <img src="resources/images/aboutus.jpg">  
+      </div>  
+ 
 
 <jsp:include page="CommonFooter.jsp"></jsp:include>
 </body>

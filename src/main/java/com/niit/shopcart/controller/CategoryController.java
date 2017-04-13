@@ -3,6 +3,8 @@ package com.niit.shopcart.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +20,10 @@ import com.niit.shopcart.model.ProductModel;
 @Controller
 public class CategoryController {
 	
+	private static final Logger log = LoggerFactory.getLogger(CategoryController.class);
+	
+	
+	
 	@Autowired
 		private CategoryDAO categoryDAO;
 		@Transactional
@@ -28,10 +34,10 @@ public class CategoryController {
 			return mv;
 		}
 		@Transactional
-		@RequestMapping("/validateAddCategory")
+		@RequestMapping(value="/validateAddCategory", method=RequestMethod.POST)
 		public ModelAndView addCategoryFunc(@ModelAttribute Category category)
 		{
-			System.out.println("Inside add Category function");
+			log.debug("Inside add Category function");
 			categoryDAO.save(category);
 			ModelAndView mv= new ModelAndView("/admin");
 			mv.addObject("msg", "Category gets Added");
@@ -59,7 +65,7 @@ public class CategoryController {
 		@RequestMapping(value="/EditCategory",  method = RequestMethod.POST)
 		public ModelAndView editCategoryFunc(@ModelAttribute Category category)
 		{
-			System.out.println("Inside Category Product");
+			log.debug("Inside Category Product");
 			categoryDAO.update(category);
 			ModelAndView mv= new ModelAndView("/admin");
 			mv.addObject("msg", "Category gets Edited");

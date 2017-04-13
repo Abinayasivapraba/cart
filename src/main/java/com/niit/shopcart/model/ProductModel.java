@@ -2,6 +2,8 @@ package com.niit.shopcart.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -22,9 +24,31 @@ public class ProductModel {
 	public void setPimage(MultipartFile pimage) {
 		this.pimage = pimage;
 	}
+	/*@ManyToOne
+	@JoinColumn(name = "supid", nullable = false, updatable = false, insertable = false)
+	private Supplier supplier;
+	
+	public Supplier getSupplier() {
+		return supplier;
+	}
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	@ManyToOne
+	@JoinColumn(name = "catid", nullable = false, updatable = false, insertable = false)
+	private Category category;
+*/	
+	
+
 	String proName;
-	int supId;
-	int catId;
+	int supid;
+	int catid;
 	String proDesc;
 	int proQuan;
 	int proCost;
@@ -45,18 +69,18 @@ public class ProductModel {
 		this.proName = proName;
 	}
 	@Column(name="SUPID")
-	public int getSupId() {
-		return supId;
+	public int getSupid() {
+		return supid;
 	}
-	public void setSupId(int supId) {
-		this.supId = supId;
+	public void setSupid(int supid) {
+		this.supid = supid;
 	}
 	@Column(name="CATID")
-	public int getCatId() {
-		return catId;
+	public int getCatid() {
+		return catid;
 	}
-	public void setCatId(int catId) {
-		this.catId = catId;
+	public void setCatid(int catid) {
+		this.catid = catid;
 	}
 	@Column(name="PRODESC")
 	public String getProDesc() {

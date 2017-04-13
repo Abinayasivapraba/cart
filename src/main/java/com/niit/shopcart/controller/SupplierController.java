@@ -3,6 +3,8 @@ package com.niit.shopcart.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +21,11 @@ import com.niit.shopcart.model.Supplier;
 @Controller
 
 public class SupplierController {
+	
+	
+	private static final Logger log = LoggerFactory.getLogger(SupplierController.class);
+	
+	
 	@Autowired
 	private SupplierDAO supplierDAO;
 	@Transactional
@@ -29,10 +36,10 @@ public class SupplierController {
 		return mv;
 	}
 	@Transactional
-	@RequestMapping("/validateAddSupplier")
+	@RequestMapping(value="/validateAddSupplier", method=RequestMethod.POST)
 	public ModelAndView addSupplierFunc(@ModelAttribute Supplier supplier)
 	{
-		System.out.println("Inside add Supplier function");
+		log.debug("Inside add Supplier function");
 		supplierDAO.save(supplier);
 		ModelAndView mv= new ModelAndView("/admin");
 		mv.addObject("msg", "Supplier gets Added");
@@ -60,7 +67,7 @@ public class SupplierController {
 	@RequestMapping(value="/EditSupplier",  method = RequestMethod.POST)
 	public ModelAndView editSupplierFunc(@ModelAttribute Supplier supplier)
 	{
-		System.out.println("Inside Supplier Function");
+		log.debug("Inside Supplier Function");
 		supplierDAO.update(supplier);
 		ModelAndView mv= new ModelAndView("/admin");
 		mv.addObject("msg", "Supplier gets Edited");

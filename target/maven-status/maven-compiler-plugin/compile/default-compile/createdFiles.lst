@@ -1,5 +1,6 @@
 com\niit\shopcart\model\MyCart.class
 com\niit\shopcart\dao\impl\UserDAOImpl.class
+com\niit\shopcart\controller\CartController.class
 com\niit\shopcart\controller\ProductController.class
 com\niit\shopcart\dao\impl\CategoryDAOImpl.class
 com\niit\shopcart\dao\UserDAO.class

@@ -81,15 +81,19 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	
 	public ProductModel getproductModelById(int proId) {
-		return (ProductModel) sessionFactory.getCurrentSession().createQuery("from ProductModel where id ="+ proId +"" ).uniqueResult();
+		return (ProductModel) sessionFactory.getCurrentSession().createQuery("from ProductModel where proid ='"+ proId +"'" ).uniqueResult();
 	
 	}
 
-	public ProductModel getproducModelByName(String proName) {
-		return (ProductModel) sessionFactory.getCurrentSession().createQuery("from ProductModel where id ="+ proName +"" ).list().get(0);
+	public ProductModel getproductModelByName(String proName) {
+		return (ProductModel) sessionFactory.getCurrentSession().createQuery("from ProductModel where proname ='"+ proName +"'" ).list().get(0);
 		
 		
 	}
+
+
+
+	
 
 
 

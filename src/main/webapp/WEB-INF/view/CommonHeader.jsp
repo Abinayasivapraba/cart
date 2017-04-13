@@ -10,82 +10,40 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js"></script>
 <%@ taglib uri= "http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<title>Header</title>
+<title>Shopping Cart</title>
+
 
 
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="background-color: #ffbbbc;">
  <div class="container-fluid">
   
 <div class="navbar-header">
 <a class="navbar-brand" href="Home">Shopping cart</a>
 </div>
 <ul class="nav navbar-nav">
-<li class="active"><a href="Home">Home</a></li>
-<li><a href="Login">Login</a></li>
- <c:if test="${not empty UID}">
- <a href="Logout">Logout</a>
-</c:if>
-
-
-<li><a href="Register">Register</a></li>
-<li><a href="Aboutus">Aboutus</a></li>
-<li><a href="Contactus">Contactus</a></li>
-<li><a href="admin">admin</a></li>
-<li><a href="Products">Products</a></li>
-<li><a href="ProductView">ProductView</a></li>
+<!-- <li class="active"><a href="Home">Home</a></li> -->
+<li><a href="Home" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-home"></span> Home</a></li>
+          <c:if test="${empty UID }"><li id="effect"><a href="Login" style="color:white">Login</a></li></c:if>
+    	<c:if test="${empty SUCC }"><li id="effect"><a href="Register" style="color:white">Register</a></li></c:if>
+    	<c:if test="${not empty showAdmin }"><li id="effect"><a href="admin" style="color:white">admin</a></li></c:if>
+    	<c:if test="${(not empty UID) and (not empty SUCC)}">
+    	<%-- <c:if test="${not empty LogList }"><li id="effect"><a href="ulist" style="color:white">Account Settings</a></li></c:if>
+    	<c:if test="${not empty RegList }"><li id="effect"><a href="ulist1" style="color:white">Account Settings</a></li></c:if> --%>
+    	<li id="effect"><a href="Logout" style="color:white">Logout</a></li>
+    	</c:if>
+       <li><a href="Aboutus">Aboutus</a></li>
+       <li><a href="Contactus">Contactus</a></li>
+       <li> <a href="ProductView" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-shopping-cart"></span> Cart
+        </a> </li>
+           
 </ul>
 </div>
 </nav>
-
-<!-- <div class="container"> -->
-<!--   <div class="row"> -->
-<!--     <div class="span12"> -->
-<!--       <div class="head"> -->
-<!--         <div class="row-fluid"> -->
-<!--             <div class="span12"> -->
-<!--                 <div class="span6"> -->
-<!--                     <h1 class="muted">Shopping Cart</h1> -->
-<!--                 </div> -->
-
-<!--                 <div class="span4 offset2" style="margin-top:15px;"> -->
-<!--                     <button class="btn pull-right" type="button">Sign In</button> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--         </div> -->
-
-<!--         <div class="navbar"> -->
-<!--             <div class="navbar-inner"> -->
-<!--                 <div class="container"> -->
-<!--                     <ul class="nav"> -->
-<!--                         <li> -->
-<!--                             <a href="Home">Home</a> -->
-<!--                         </li> -->
-
-<!--                         <li> -->
-<!--                             <a href="Login">Login</a> -->
-<!--                         </li> -->
-
-<!--                         <li> -->
-<!--                             <a href="Register">Register</a> -->
-<!--                         </li> -->
-
-<!--                         <li> -->
-<!--                             <a href="Aboutus">Aboutus</a> -->
-<!--                         </li> -->
-<!--                         <li> -->
-<!--                             <a href="Contactus">Contactus</a> -->
-<!--                         </li> -->
-<!--                     </ul> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--         </div> -->
-<!--       </div> -->
-<!--     </div> -->
-<!--   </div> -->
-<!-- </div> -->
 
 
   </body>

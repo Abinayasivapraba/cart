@@ -12,13 +12,14 @@ public interface ProductDAO {
 	public boolean delete (ProductModel productModel);
 	public boolean delete (int proId);
 	//public boolean deleteproductModelById(int proId);
+	//public List<ProductModel> getAllProductModel(String proName);
 	
 	
 	
 			public ProductModel getproductModelById(int proId);
 			
 			//get category by name
-			public ProductModel getproducModelByName(String proName);
+			public ProductModel getproductModelByName(String proName);
 
 	
 	

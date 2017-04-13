@@ -17,7 +17,7 @@
 <c:if test="${not empty updateUser }">
 <div class="container">
   <h2>Register Here <p class="lead">With Proper Details</p></h2>
-  <form:form role="form" class="form-horizontal" action="validateUserEdit" method="post">
+  <%-- <form:form role="form" class="form-horizontal" action="validateUserEdit" method="post"> --%>
   <div class="form-group">
       <label class="col-sm-12">User</label>
       <div class="col-sm-6"><form:input type="text" path="id" id="id" name="id" class="form-control" placeholder="ID" required="" readonly="true" value="${UID }"/><div class="help">ID</div></div>
@@ -38,7 +38,7 @@
         <form:button type="submit" class="btn btn-info pull-right">Update Product</form:button>
       </div>
     </div>
-  </form:form>
+  
   <hr>
 </div>
 </c:if>

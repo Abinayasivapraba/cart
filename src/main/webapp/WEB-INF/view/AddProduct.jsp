@@ -43,14 +43,15 @@
     </div>
     <br>
     
-    <div class="input-group">
-     <span class="input-group-addon"> Supplier ID </span>
-      <form:input type="text" class="form-control" path="supId" id="supId" placeholder="Enter Supplier ID"/>
-    </div>
-    <br>
+    
         <div class="input-group">
      <span class="input-group-addon"> Category ID </span>
-      <form:input type="text" class="form-control" path="catId" id="catId" placeholder="Enter Category ID"/>
+      <form:input type="text" class="form-control" path="catid" id="catid" placeholder="Enter Category ID"/>
+    </div>
+    <br>
+    <div class="input-group">
+     <span class="input-group-addon"> Supplier ID </span>
+      <form:input type="text" class="form-control" path="supid" id="supid" placeholder="Enter Supplier ID"/>
     </div>
     <br>
     <div class="input-group">

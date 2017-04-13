@@ -2,6 +2,8 @@ package com.niit.shopcart.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,41 +22,57 @@ public class CartDAOImpl implements CartDAO {
 		
 		this.sessionFactory=sessionFactory;		
 	}
-	public List<MyCart> getAllMyCart() {
-	 
-		return null;
+	public List<MyCart> getAllCartDetails(String uid) {
+		
+		return sessionFactory.getCurrentSession().createQuery("from cart where userid='"+uid+"'").list();
 	}
 	public boolean save(MyCart myCart) {
 		try {
 			sessionFactory.getCurrentSession().save(myCart);
-		} catch (Exception e) {
+		} catch (HibernateException e) {
 			
+			e.printStackTrace();
 		}
 		return false;
 	}
 	public boolean update(MyCart myCart) {
 		try {
 			sessionFactory.getCurrentSession().update(myCart);
-		} catch (Exception e) {
+		} catch (HibernateException e) {
 			
+			e.printStackTrace();
 		}
-		
 		return false;
 	}
 	public boolean delete(MyCart myCart) {
 		try {
 			sessionFactory.getCurrentSession().delete(myCart);
-		} catch (Exception e) {
+		} catch (HibernateException e) {
 			
+			e.printStackTrace();
 		}
 		
 		return false;
 	}
-
+	public MyCart getMyCartById(int cartid) {
+		return (MyCart) sessionFactory.getCurrentSession().get(MyCart.class, cartid);
 
 	
-
+	}
+	public MyCart getMyCartByName(String proName) {
+		return (MyCart) sessionFactory.getCurrentSession().createQuery("from MyCart where name='"+proName+"'").uniqueResult();
+	}
+	public int getProductSum(int proCost, int proQuan) {
+		return proCost*proQuan;
+	}
+	public int getProductTotal(String uid)
+	{
+		String hql = "select isnull(sum(sumprice),0) from MyCart where user_id='"+uid+"'";
+		String result = sessionFactory.getCurrentSession().createSQLQuery(hql).uniqueResult().toString();
+		int total = Integer.parseInt(result);
+		return total;
+	}
 	
 	
-
-}
+	
+	}

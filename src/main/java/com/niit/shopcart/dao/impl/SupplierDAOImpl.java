@@ -71,13 +71,13 @@ public class SupplierDAOImpl implements SupplierDAO {
 
 	public Supplier getSupplierByID(int supid) {
 		
-		return(Supplier) sessionFactory.getCurrentSession().createQuery("from Supplier where id ="+supid +"" ).uniqueResult();
+		return(Supplier) sessionFactory.getCurrentSession().createQuery("from Supplier where supid ="+supid +"" ).uniqueResult();
 		
 	}
 
 	public Supplier getSupplierByName(String supname) {
 		
-		return (Supplier) sessionFactory.getCurrentSession().createQuery("from Supplier where name ="+ supname +"" ).list().get(0);
+		return (Supplier) sessionFactory.getCurrentSession().createQuery("from Supplier where supname ="+ supname +"" ).list().get(0);
 		
 	}
 

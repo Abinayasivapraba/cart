@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.niit.shopcart.dao.CartDAO;
+
 import com.niit.shopcart.dao.ProductDAO;
 import com.niit.shopcart.dao.UserDAO;
 import com.niit.shopcart.model.ProductModel;
@@ -23,8 +25,17 @@ import com.niit.shopcart.model.User;
 
 @Controller
 public class UserController {
-	private String loginid;
+	
+	
+	
+	private static final Logger log = LoggerFactory.getLogger(UserController.class);
+	
+	
+	private String logid;
 	private String regid;
+	public String getLogid() {
+		return logid;
+	}
 	
 	
 	
@@ -38,8 +49,7 @@ public class UserController {
 	private ProductDAO productDAO;
 	@Autowired
 	ProductModel productModel;
-	@Autowired
-    private CartDAO cartDAO;
+	
 	
 	/*@RequestMapping("/validatelogin")
 	public ModelAndView showLoginPage()
@@ -70,23 +80,23 @@ public class UserController {
 				session.setAttribute("showAdmin", true);
 			}
 			mv = new ModelAndView("/ValidateRegister","command",new User());
-			loginid=uid;
+			logid=uid;
 			mv.addObject("compareT", "Validation Success");
 			session.setAttribute("LogList", "true");
 			session.setAttribute("UID", "Welcome:" +uid);
-			session.setAttribute("SUCC","Done");
+			session.setAttribute("SUCC","Welcome:" +uid);
 		}
 		return mv;
 	}
 	
 	
-	@RequestMapping("/Logout")
+	/*@RequestMapping("/Logout")
 	public ModelAndView logout()
 	{
 		ModelAndView mv = new ModelAndView("/Login");
 		session.removeAttribute("UID");
 		return mv;
-	}
+	}*/
 	/*@RequestMapping("/Register")
 	public ModelAndView showRegisterPage()
 	{
@@ -96,7 +106,7 @@ public class UserController {
 		return mv;
 	}*/
 	@Transactional
-	@RequestMapping("/validateregister")
+	@RequestMapping(value="/validateregister",method=RequestMethod.POST)
 	public ModelAndView validationlogin(@ModelAttribute User user,@RequestParam("password")String psw,@RequestParam("id") String uid,@RequestParam("fname") String fname,@RequestParam("lname")String lname,@RequestParam("email") String mail,@RequestParam("confirmpassword")String cpsw)
 	{
 		String compareEmail = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
@@ -110,17 +120,17 @@ public class UserController {
 		mv.addObject("LNAME", lname);
 		if(uid=="")
 		{
-			System.out.println("In UserId comparision");
+			log.debug("In UserId comparision");
 			mv.addObject("RUID","User Name Not Entered");
 		}
 		if(psw=="")
 		{
-			System.out.println("In password confirmation");
+			log.debug("In password confirmation");
 			mv.addObject("RPSW","Password Not Entered");
 		}
 		if(cpsw=="")
 		{
-			System.out.println("In Confirm password ");
+			log.debug("In Confirm password ");
 			mv.addObject("RCPSW","Confirm Password Not Entered");
 		}
 		if(mail=="")
@@ -135,32 +145,32 @@ public class UserController {
 		}
 		if(lname=="")
 		{
-			System.out.println("In LastName Entry");
+			log.debug("In LastName Entry");
 			mv.addObject("RLNAME","Last Name Not Entered");
 		}
 		if(fname.equals(uid))
 		{
-			System.out.println("In FirstName equals");
+			log.debug("In FirstName equals");
 			mv.addObject("compareUF", "First Name & User Name Must Not Be Same");
 		}
 		if(b2!=true)
 		{
-			System.out.println("In Password comparision");
+			log.debug("In Password comparision");
 			mv.addObject("compareP", "Password & Confirm Password Must Be Same");
 		}
 		if(b1!=true)
 		{
-			System.out.println("In Password Length Comparision");
+			log.debug("In Password Length Comparision");
 			mv.addObject("comparePSW", "Password Must Be Greater Than 8 Characters.It Should Conatin One Symbol One Capital Letter One Small Letter One Number and No Space");
 		}
 		if(b!=true)
 		{
-			System.out.println("In Email comparision");
+			log.debug("In Email comparision");
 			mv.addObject("compareE", "Email Is Not Properly Entered Make Sure (@) & (.) is used Example : example@abc.com");
 		}
 		else
 		{
-			System.out.println("In Else");
+			log.debug("In Else");
 			mv.addObject("success", "Hi " );
 			user.setRole("Role_User");
 			userDAO.save(user);
@@ -183,7 +193,7 @@ public class UserController {
 	{
 		ModelAndView mv = new ModelAndView("/ValRegister","command",new User());
 		List<User> userList = fetchUserList();
-		user = userDAO.getUserById(loginid);
+		user = userDAO.getUserById(logid);
 		mv.addObject("successList", userList);
 		mv.addObject("L", user);
 		session.removeAttribute("updateUser");
@@ -208,7 +218,7 @@ public class UserController {
 		return list;
 	}
 	
-	@RequestMapping("/logout")
+	@RequestMapping("/Logout")
 	public ModelAndView Logout()
 	{
 		ModelAndView mv = new ModelAndView("/Home");
@@ -223,13 +233,13 @@ public class UserController {
 	@RequestMapping("/ProductView")
 	public ModelAndView viewProduct(Map<String, Object> map)
 	{
-		System.out.println("Start of method AddToCart");
+		log.debug("Start of method AddToCart");
 		String path="D:\\Users\\Abinaya\\workspace\\cart\\src\\main\\webapp\\resources\\images\\";
 		List<ProductModel> prodList=productDAO.getAllProductModel();
 		map.put("prList", prodList );
 		map.put("path", path);
 		ModelAndView mv=new ModelAndView("/ProductView",map);
-		System.out.println("End of method AddToCart");
+		log.debug("End of method AddToCart");
 		return mv;
 	}
 
