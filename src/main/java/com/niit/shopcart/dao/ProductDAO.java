@@ -9,8 +9,9 @@ public interface ProductDAO {
 	
 	public boolean update(ProductModel productModel);
 	
-	public boolean delete (ProductModel productModel);
-	public boolean delete (int proId);
+	public boolean delete(ProductModel productModel);
+	
+	public boolean delete(int proId);
 	//public boolean deleteproductModelById(int proId);
 	//public List<ProductModel> getAllProductModel(String proName);
 	
@@ -18,11 +19,9 @@ public interface ProductDAO {
 	
 			public ProductModel getproductModelById(int proId);
 			
-			//get category by name
+			//get product by name
 			public ProductModel getproductModelByName(String proName);
 
 	
 	
-//public ProductModel getproductModelByName(String proName);
-//public void updateProduct(ProductModel product);
 }

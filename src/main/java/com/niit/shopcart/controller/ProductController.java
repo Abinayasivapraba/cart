@@ -159,18 +159,19 @@ public ModelAndView deleteProduct(@RequestParam("proId") int proId)
 	return mv;
 
 }
+
 @Transactional
 @RequestMapping("/selViewProduct")
 public ModelAndView showViewProductPage(Map<String, Object> map)
 {
 	String path="D:\\Users\\Abinaya\\workspace\\cart\\src\\main\\webapp\\resources\\images\\";
-	
 	List<ProductModel> prodList=productDAO.getAllProductModel();
 	map.put("prList", prodList );
 	map.put("path", path);
 	ModelAndView mv=new ModelAndView("/ViewProduct",map);
 	return mv;
 }
+
 
 @Transactional
 @RequestMapping("/Products")

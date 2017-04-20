@@ -24,7 +24,7 @@ public class CartDAOImpl implements CartDAO {
 	}
 	public List<MyCart> getAllCartDetails(String uid) {
 		
-		return sessionFactory.getCurrentSession().createQuery("from cart where userid='"+uid+"'").list();
+		return sessionFactory.getCurrentSession().createQuery("from MyCart where id='"+uid+"'").list();
 	}
 	public boolean save(MyCart myCart) {
 		try {
@@ -60,18 +60,18 @@ public class CartDAOImpl implements CartDAO {
 	
 	}
 	public MyCart getMyCartByName(String proName) {
-		return (MyCart) sessionFactory.getCurrentSession().createQuery("from MyCart where name='"+proName+"'").uniqueResult();
+		return (MyCart) sessionFactory.getCurrentSession().createQuery("from MyCart where proname='"+proName+"'").uniqueResult();
 	}
 	public int getProductSum(int proCost, int proQuan) {
 		return proCost*proQuan;
 	}
-	public int getProductTotal(String uid)
+	/*public int getProductTotal(String uid)
 	{
 		String hql = "select isnull(sum(sumprice),0) from MyCart where user_id='"+uid+"'";
 		String result = sessionFactory.getCurrentSession().createSQLQuery(hql).uniqueResult().toString();
 		int total = Integer.parseInt(result);
 		return total;
-	}
+	}*/
 	
 	
 	

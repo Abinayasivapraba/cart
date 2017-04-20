@@ -35,7 +35,7 @@
    </div>
     <div class="form-group">
       <div class="col-sm-6">
-        <form:button type="submit" class="btn btn-info pull-right">Update Product</form:button>
+        <form:button type="submit" class="btn btn-info pull-right">Update</form:button>
       </div>
     </div>
   

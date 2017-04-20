@@ -10,9 +10,9 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 <script src="js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js"></script> -->
 <style>
 .container {
     padding: 25px;
@@ -52,14 +52,14 @@ li.ui-state-default:last-child{
         <strong class="pull-left primary-font">James</strong>
         <small class="pull-right text-muted">
            <span class="glyphicon glyphicon-time"></span>7 mins ago</small>
-        </br>
+        <br>
         <li class="ui-state-default">A smartwatch is a computerized wristwatch with functionality that goes beyond timekeeping. While early models can perform basic tasks, such as calculations, translations, and game-playing, 2010s smartwatches are effectively wearable computers. Many run mobile apps, using a mobile operating system </li>
-        </br>
+        <br>
          <strong class="pull-left primary-font">Taylor</strong>
         <small class="pull-right text-muted">
            <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
-        </br>
-        <li class="ui-state-default">Nice Shopping.....Good Quality...Features are extremely extraordinary........</li>
+        <br/>
+        <li class="ui-state-default">Nice Shopping.....Good Quality...Features are extremely attractive........</li>
         
     </ul>
     </div>

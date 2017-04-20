@@ -51,18 +51,18 @@ body {
  <a href="Logout">Logout</a>
 </c:if> --%>
 
- <c:if test="${empty UID}">
+ <%-- <c:if test="${empty UID}">
  <a href="Login">Login</a>
 </c:if>
+ --%>
 
 
-
-<!--               <div class="panel-heading">LOGIN</div> -->
-<!--               <div class="panel-body"> -->
-<%--               <form:form id="LOGIN-form" action="validatelogin" method="post" role="form" style="display: block;"> --%>
+              <%-- <div class="panel-heading">LOGIN</div> -->
+               <div class="panel-body"> -->
+              <form:form id="LOGIN-form" action="validatelogin" method="post" role="form" style="display: block;"> 
+               --%>
               
-              
- <!-- <div class="form-group">
+  <!-- <div class="form-group">
  
  
  <input type="text" name="id" id="id" path="id" class="form-control input-sm chat-input" placeholder="id"/>
@@ -82,7 +82,7 @@ body {
 </div>
 </div>
  -->
- <div class="container">
+  <div class="container">
 
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
@@ -91,10 +91,10 @@ body {
 				<h2>Please Sign In</h2>
 				<hr class="colorgraph">
 				<div class="form-group">
-                    <input type="id" name="id" id="id" path="id" class="form-control input-lg" placeholder="Enter the id">
+                    <input type="id" name="id" id="id" path="id" required="required" class="form-control input-lg" placeholder="Enter the id">
 				</div>
 				<div class="form-group">
-                    <input type="password" name="password" id="password" path="password" class="form-control input-lg" placeholder="Password">
+                    <input type="password" name="password" id="password" path="password" required="required" class="form-control input-lg" placeholder="Password">
 				</div>
 				<!-- <span class="button-checkbox">
 					<button type="button" class="btn" data-color="info">Remember Me</button>
@@ -116,7 +116,7 @@ body {
 </div>
 
 </div>
-<jsp:include page="CommonFooter.jsp"></jsp:include> 
+ <jsp:include page="CommonFooter.jsp"></jsp:include> 
 </body>
 
 </html>

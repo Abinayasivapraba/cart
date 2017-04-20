@@ -22,7 +22,7 @@ public interface CartDAO {
 	
 	public int getProductSum(int proCost ,int proQuan);
 	
-	public int getProductTotal(String uid);
+	//public int getProductTotal(String uid);
 
 	
 }

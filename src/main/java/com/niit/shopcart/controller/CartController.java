@@ -1,6 +1,7 @@
 package com.niit.shopcart.controller;
 
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.servlet.http.HttpSession;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,8 +54,25 @@ public class CartController {
 	
 
 	
+	
 	@Transactional
 	@RequestMapping(value="/MyCart",method=RequestMethod.GET)
+	public ModelAndView showMyCart()
+	{
+		ModelAndView mv = new ModelAndView("/MyCart");
+		String uid = userController.getLogid();
+		System.out.println(uid);
+		
+	List<MyCart> showcartlist=cartDAO.getAllCartDetails(uid);
+	System.out.println(showcartlist);
+		mv.addObject("showcartlist", showcartlist );
+		mv.addObject("myCart",myCart);
+		//int total = cartDAO.getProductTotal(uid);
+		//System.out.println(total);
+		//mv.addObject("total", total);
+		return mv;
+	}
+	/*@RequestMapping(value="/MyCart",method=RequestMethod.GET)
 	public ModelAndView showMyCart()
 	{
 		ModelAndView mv = new ModelAndView("/MyCart/MyCart");
@@ -63,11 +82,11 @@ public class CartController {
 		System.out.println(total);
 		mv.addObject("total", total);
 		return mv;
-	}
+	}*/
 	
 	@Transactional
 	@RequestMapping(value="/validateaddCart",method=RequestMethod.GET)
-	public ModelAndView validateAddToCart(@RequestParam("proName")String proName,@ModelAttribute MyCart myCart)
+	public ModelAndView AddToCart(@RequestParam("proName")String proName,@ModelAttribute MyCart myCart)
 	{
 		ModelAndView mv;
 		String id = userController.getLogid();
@@ -78,7 +97,7 @@ public class CartController {
 		}
 		else
 		{
-			mv = new ModelAndView("/MyCart");
+			mv = new ModelAndView("redirect:/MyCart");
 			long d = System.currentTimeMillis();
 			Date today = new Date(d);
 			ProductModel productModel = productDAO.getproductModelByName(proName);
@@ -96,46 +115,46 @@ public class CartController {
 	}
 	
 	@Transactional
-	@RequestMapping(value="increasequantity",method=RequestMethod.GET)
-	public ModelAndView validateEditCartAdd(@RequestParam("id")int id,@ModelAttribute MyCart myCart)
+	@RequestMapping(value="increasequantity/{id}",method=RequestMethod.GET)
+	public ModelAndView increasecartquan(@PathVariable("id")int id,@ModelAttribute MyCart myCart)
 	{
-		ModelAndView mv = new ModelAndView("/MyCart");
+		ModelAndView mv = new ModelAndView("redirect:/MyCart");
 		myCart = cartDAO.getMyCartById(id);
-		int qty = myCart.getProQuan();
-		qty++;
-		myCart.setProQuan(qty);
-		myCart.setSum(cartDAO.getProductSum((int) myCart.getProCost(), qty));
+		int quan = myCart.getProQuan();
+		quan++;
+		myCart.setProQuan(quan);
+		myCart.setSum(cartDAO.getProductSum((int) myCart.getProCost(), quan));
 		cartDAO.update(myCart);
 		return mv;
 	}
 	
 	@Transactional
-	@RequestMapping(value="decreasequantity",method=RequestMethod.GET)
-	public ModelAndView validateEditCartLess(@RequestParam("id")int id,@ModelAttribute MyCart myCart)
+	@RequestMapping(value="decreasequantity/{id}",method=RequestMethod.GET)
+	public ModelAndView decreasecartquan(@PathVariable("id")int id,@ModelAttribute MyCart myCart)
 	{
-		ModelAndView mv = new ModelAndView("/MyCart");
+		ModelAndView mv = new ModelAndView("redirect:/MyCart");
 		myCart = cartDAO.getMyCartById(id);
-		int qty = myCart.getProQuan();
-		if(qty<=1)
+		int quan = myCart.getProQuan();
+		if(quan<=1)
 		{
-			myCart.setProQuan(qty);
+			myCart.setProQuan(quan);
 		}
 		else
 		{
-			qty--;
-			myCart.setProQuan(qty);
+			quan--;
+			myCart.setProQuan(quan);
 		}
-		myCart.setSum(cartDAO.getProductSum((int) myCart.getProCost(), qty));
+		myCart.setSum(cartDAO.getProductSum((int) myCart.getProCost(), quan));
 		cartDAO.update(myCart);
 		return mv;
 	}
 	
 	@Transactional
 	@RequestMapping(value="/deletecart",method=RequestMethod.GET)
-	public ModelAndView validateDeleteCart(@RequestParam("id")int id)
+	public ModelAndView DeleteCart(@RequestParam("id") int id)
 	{
-		ModelAndView mv = new ModelAndView("/MyCart");
-		MyCart myCart = cartDAO.getMyCartById(id);
+		ModelAndView mv = new ModelAndView("redirect:/MyCart");
+		MyCart  myCart = cartDAO.getMyCartById(id);
 		cartDAO.delete(myCart);
 		return mv;
 	}

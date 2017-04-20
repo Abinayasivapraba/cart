@@ -23,13 +23,7 @@
 
  <form:form action="validateAddProduct" method="post" modelattribute="ProductModel" enctype="multipart/form-data">
 <center>${Success}</center><br>
-<%--     <center>${proId}</center> --%>
-<%-- 	<center>${proNam}</center> --%>
-<%-- 	<center>${supId}</center> --%>
-<%-- 	 <center>${catId}</center> --%>
-<%-- 	 <center>${proDesc}</center> --%>
-<%-- 	 <center>${proQuan}</center> --%>
-<%-- 	 <center>${proCost}</center> --%>
+
 <div class="col-xs-6">
     <div class="input-group">
    

@@ -82,7 +82,7 @@ public class SupplierDAOImpl implements SupplierDAO {
 	}
 
 	public Supplier getSupplierByName(Supplier supplier) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

@@ -35,20 +35,22 @@
                     </tr> 
                   </thead>
                   <tbody>
-                  	<c:forEach var="mycart" items="${displayMyCart }">
+                  	<c:forEach var="myCart" items="${showcartlist }">
                           <tr>
-                            <td>${mycart.cartid }</td>
-                            <td>${mycart.proName }</td>
-                            <td>
-                            <a href="increasequantity?id=${mycart.cartid }" class="btn btn-default"><em class="fa fa-plus"></em></a>
-                            ${mycart.proQuan }
-                            <a href="decreasequantity?id=${mycart.cartid }" class="btn btn-default"><em class="fa fa-minus"></em></a></td>
-                            <td>${mycart.proQuan }</td>
-                            <td>${mycart.status }</td>
-                            <td>${mycart.sum }</td>
-                            <td>${mycart.dateadded }</td>
+                            <td>${myCart.cartid }</td>
+                            <td>${myCart.proName }</td>
+                            <td>${myCart.proQuan }</td>
+                            <td>${myCart.status }</td>
+                            <td>${myCart.sum }</td>
+                            <td>${myCart.dateadded }</td>
+                            <td><a href="<c:url value='/increasequantity/${myCart.cartid}' />">
+  	<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>
+  	</button></a>&nbsp;${myCart.proQuan}&nbsp;<a href="<c:url value='/decreasequantity/${myCart.cartid}' />">
+  	<button type="submit" class="btn btn-default" style="color:#FF3349;">
+  	<span class="glyphicon glyphicon-minus"></span></button></a></td>
+  	<td>${myCart.sum}</td>
                             <td align="center">
-                              <a href="deletecart?id=${mycart.cartid }" class="btn btn-danger"><em class="fa fa-trash"></em></a>
+                              <a href="deletecart?id=${myCart.cartid }"> <button type="submit" class="btn btn-danger">Delete<span class="glyphicon glyphicon-remove"></span></button></a>
                             </td>
                           </tr>
                 	</c:forEach>

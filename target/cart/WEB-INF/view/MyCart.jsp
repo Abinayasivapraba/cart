@@ -40,15 +40,15 @@
                             <td>${mycart.cartid }</td>
                             <td>${mycart.proName }</td>
                             <td>
-                            <a href="increasequantity?id=${mycart.cartid }" class="btn btn-default"><em class="fa fa-plus"></em></a>
+                            <a href="increasequantity?id=${mycart.cartid }" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></a>
                             ${mycart.proQuan }
-                            <a href="decreasequantity?id=${mycart.cartid }" class="btn btn-default"><em class="fa fa-minus"></em></a></td>
+                            <a href="decreasequantity?id=${mycart.cartid }" class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></a></td>
                             <td>${mycart.proQuan }</td>
                             <td>${mycart.status }</td>
                             <td>${mycart.sum }</td>
                             <td>${mycart.dateadded }</td>
                             <td align="center">
-                              <a href="deletecart?id=${mycart.cartid }" class="btn btn-danger"><em class="fa fa-trash"></em></a>
+                              <a href="deletecart?id=${mycart.cartid }" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
                             </td>
                           </tr>
                 	</c:forEach>

@@ -28,7 +28,7 @@
           <div class="caption">
           <center>${pList.proName}
           <p>Cost: ${pList.proCost}</p>
-          <a href="validateaddCart?proName=${pList.proName }" class="btn btn-default"><em class="fa fa-shopping-cart-fw"></em>AddToCart</a>
+          <a href="validateaddCart?proName=${pList.proName }" class="btn btn-default">AddToCart</a>
           <!-- <button type="button">Add to Cart</button> -->
           </center>
           </div>
