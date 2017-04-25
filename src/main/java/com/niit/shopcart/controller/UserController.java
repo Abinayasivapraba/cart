@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -64,14 +65,14 @@ public class UserController {
 	
 	@Transactional
 	@RequestMapping(value="/validatelogin",method=RequestMethod.POST)
-	public ModelAndView validation(@ModelAttribute User user, @RequestParam("id") String uid,@RequestParam("password")String psw)
+	public ModelAndView validation(HttpServletRequest request,@ModelAttribute User user, @RequestParam("id") String id,@RequestParam("password")String password)
 	{
 		ModelAndView mv;
-		user = userDAO.validateLoginCredentials(uid, psw);
+		 user = userDAO.validateLoginCredentials(id, password);                                                            //validateLoginCredentials(uid, psw);
 		if(user==null)
 		{
-			mv = new ModelAndView("/validatelogin","command",new User());
-			mv.addObject("compareF", "Wrong Credentials");
+			mv = new ModelAndView("/Home","command",new User());
+			mv.addObject("Wrong", "Wrong Credentials");
 		}
 		else
 		{
@@ -79,32 +80,18 @@ public class UserController {
 			{
 				session.setAttribute("showAdmin", true);
 			}
-			mv = new ModelAndView("/ValidateRegister","command",new User());
-			logid=uid;
-			mv.addObject("compareT", "Validation Success");
+			mv = new ModelAndView("forward:/Home","command",new User());
+			logid=id;
+			//mv.addObject("compareT", "Validation Success");
 			session.setAttribute("LogList", "true");
-			session.setAttribute("UID", "Welcome:" +uid);
-			session.setAttribute("SUCC","Welcome:" +uid);
+			session.setAttribute("UID", "Welcome:" +id);
+			session.setAttribute("SUCC","Welcome:" +id);
 		}
 		return mv;
 	}
 	
 	
-	/*@RequestMapping("/Logout")
-	public ModelAndView logout()
-	{
-		ModelAndView mv = new ModelAndView("/Login");
-		session.removeAttribute("UID");
-		return mv;
-	}*/
-	/*@RequestMapping("/Register")
-	public ModelAndView showRegisterPage()
-	{
-		//Which Page To Navigate
-		ModelAndView mv = new ModelAndView("/Register");
-		mv.addObject("isUserClickedRegister", "true");
-		return mv;
-	}*/
+	
 	@Transactional
 	@RequestMapping(value="/validateregister",method=RequestMethod.POST)
 	public ModelAndView validationlogin(@ModelAttribute User user,@RequestParam("password")String psw,@RequestParam("id") String uid,@RequestParam("fname") String fname,@RequestParam("lname")String lname,@RequestParam("email") String mail,@RequestParam("confirmpassword")String cpsw)
@@ -174,8 +161,8 @@ public class UserController {
 			mv.addObject("success", "Hi " );
 			user.setRole("Role_User");
 			userDAO.save(user);
-			List<User> userList = fetchUserList();
-			mv.addObject("successList", userList);
+			//List<User> userList = fetchUserList();
+			//mv.addObject("successList", userList);
 			regid=uid;
 			user = userDAO.getUserById(regid);
 			mv.addObject("L", user);
@@ -187,7 +174,7 @@ public class UserController {
 		return mv;
 	}
 
-	@Transactional
+	/*@Transactional
 	@RequestMapping("ulist")
 	public ModelAndView showUserListLogin()
 	{
@@ -210,7 +197,7 @@ public class UserController {
 		mv.addObject("L", user);
 		session.removeAttribute("updateUser");
 		return mv;
-	}
+	}*/
 	public List<User> fetchUserList()
 	{
 		List<User> list = new ArrayList<User>(userDAO.getAllUser());

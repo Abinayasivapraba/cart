@@ -22,9 +22,9 @@ public class CartDAOImpl implements CartDAO {
 		
 		this.sessionFactory=sessionFactory;		
 	}
-	public List<MyCart> getAllCartDetails(String uid) {
+	public List<MyCart> getAllCartDetails(String id) {
 		
-		return sessionFactory.getCurrentSession().createQuery("from MyCart where id='"+uid+"'").list();
+		return sessionFactory.getCurrentSession().createQuery("from MyCart where id='"+id+"'").list();
 	}
 	public boolean save(MyCart myCart) {
 		try {

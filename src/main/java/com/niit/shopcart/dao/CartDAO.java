@@ -6,7 +6,7 @@ import java.util.List;
 import com.niit.shopcart.model.MyCart;
 
 public interface CartDAO {
-	public List<MyCart> getAllCartDetails(String uid);
+	public List<MyCart> getAllCartDetails(String id);
 
 
 	

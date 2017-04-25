@@ -41,47 +41,8 @@ body {
 <%-- <form class="form-horizontal" action="login"> --%>
 
 
-<form action="validatelogin" name="Login" method ="post">
- <center>${compareF}</center>
- <center>${compareT}</center>
-
-<center>${UID}</center>
-
- <%-- <c:if test="${not empty UID}">
- <a href="Logout">Logout</a>
-</c:if> --%>
-
- <%-- <c:if test="${empty UID}">
- <a href="Login">Login</a>
-</c:if>
- --%>
-
-
-              <%-- <div class="panel-heading">LOGIN</div> -->
-               <div class="panel-body"> -->
-              <form:form id="LOGIN-form" action="validatelogin" method="post" role="form" style="display: block;"> 
-               --%>
-              
-  <!-- <div class="form-group">
- 
- 
- <input type="text" name="id" id="id" path="id" class="form-control input-sm chat-input" placeholder="id"/>
-<br>
- <input type="text" name="password" path="password" id="password"  class="form-control input-sm chat-input" placeholder="password"/>
-<br>
-<div class="wrapper">
-<span class="group-btn">
-<button type="submit" class="btn btn-success btn-lg">Login</button>
-<button type="reset" class="btn btn-success btn-lg">Reset</button>
-</span>
-</div>
-</div>
-
-</div>
-</div>
-</div>
-</div>
- -->
+<form action="validatelogin" name="validatelogin" method="post">
+  <center>{Wrong}</center>
   <div class="container">
 
 <div class="row" style="margin-top:20px">
@@ -96,11 +57,8 @@ body {
 				<div class="form-group">
                     <input type="password" name="password" id="password" path="password" required="required" class="form-control input-lg" placeholder="Password">
 				</div>
-				<!-- <span class="button-checkbox">
-					<button type="button" class="btn" data-color="info">Remember Me</button>
-                    <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
-					<a href="" class="btn btn-link pull-right">Forgot Password?</a>
-				</span> -->
+				
+				
 				<hr class="colorgraph">
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6">

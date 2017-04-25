@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script src="Bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/valid.js"></script>
+<%@ taglib uri= "http://java.sun.com/jsp/jstl/core" prefix="c" %>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <title>Edit the Product</title>

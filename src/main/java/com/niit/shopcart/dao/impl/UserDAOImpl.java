@@ -46,7 +46,7 @@ public class UserDAOImpl implements UserDAO {
 			sessionFactory.getCurrentSession().delete(user);
 			return true;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 			return false;
 		}
@@ -57,7 +57,7 @@ public class UserDAOImpl implements UserDAO {
 			sessionFactory.getCurrentSession().update(user);
 			return true;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 			return false;
 		}
@@ -72,8 +72,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public User validateLoginCredentials(String id, String password) {
-		user = (User) sessionFactory.getCurrentSession().get(User.class, id);
-		return user;
+		//user = (User) sessionFactory.getCurrentSession().get(User.class, id);
+		return (User) sessionFactory.getCurrentSession().createQuery("from User where id='"+id+"' and password='"+password+"'").uniqueResult();
 	}
 
 	public boolean delete(String id) {

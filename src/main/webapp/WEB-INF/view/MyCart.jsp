@@ -63,6 +63,7 @@
      </div>
   </div>
 </div>
+<a href="Checkout"><button type="submit" class="btn btn-success">Checkout</button></a>
 
   <jsp:include page="CommonFooter.jsp"></jsp:include>
 

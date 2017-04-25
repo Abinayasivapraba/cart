@@ -94,6 +94,7 @@ public class HomeController {
 		return mv;
 	}
 
+
 @RequestMapping(value = "/editUser", method = RequestMethod.GET)
 @Transactional
 public ModelAndView showEditProduct(@RequestParam("editrow")String id,@ModelAttribute User user)

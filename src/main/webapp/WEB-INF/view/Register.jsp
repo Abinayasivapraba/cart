@@ -33,7 +33,7 @@
 <h3>Register Here</h3>
 
 
-<form action="validateregister" name="Register" method="post">
+<form action="validateregister" name="validateregister" method="post">
  <div class="container" >
     	<div class="row">
 			<div class="col-md-12">
