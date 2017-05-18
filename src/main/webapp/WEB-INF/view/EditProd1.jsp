@@ -105,20 +105,7 @@ table, th, td {
 </center>
 
 
-<%-- <form:form action="Editproduct" method="post" modelattribute="product">
- Product ID:<input type="text" path="proId" id="proId" name="proId" value="${prFound.proId}" disbled="disabled"  >
-<input type="text" id="proId" name="proId" value="${prFound.proId}"><br>
-Product Name:<input type="text" path="proName" id="proName" name="proName" value="${prFound.proName}" disbled="disabled">
-Product Description:<input type="text" path="proDesc"  id="proDesc" name="proDesc" value="${prFound.proDesc}" disbled="disabled">
-Supplier ID:<input type="text" id="supid" path="supid" name="supid" value="${prFound.supid}" disbled="disabled">
-Category ID:<input type="text" id="catid" path="catid" name="catid" value="${prFound.catid}" disbled="disabled">
-Product Quantity:<input type="text" path="proQuan" name="proQuan" id="proQuan" value="${prFound.proQuan}"><br>
-Product Cost:<input type="text" path="proCost" name="proCost" id="proCost" value="${prFound.proCost}"><br>
-<input type="submit" value="Edit"> 
- 
 
-</form:form>
-</center>--%>
 
 
 </body>

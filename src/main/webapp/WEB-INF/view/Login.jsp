@@ -42,7 +42,7 @@ body {
 
 
 <form action="validatelogin" name="validatelogin" method="post">
-  <center>{Wrong}</center>
+  <
   <div class="container">
 
 <div class="row" style="margin-top:20px">

@@ -51,6 +51,10 @@
     	{
     	window.location="selDeleteCategory";
     	}
+    	if(form_value=="ViewCategory")
+      	{
+      	window.location="selViewCategory";
+      	}
   }
   	function eFunc()
     {
@@ -67,6 +71,10 @@
     	{
     	window.location="selDeleteSupplier";
     	}
+    	if(form_value=="ViewSupplier")
+      	{
+      	window.location="selViewSupplier";
+      	}
   }
   </script>
   
@@ -104,6 +112,7 @@
         <option value="AddCategory">Add</option>
         <option value="EditCategory">Edit</option>
         <option value="DeleteCategory">Delete</option>
+        <option value="ViewCategory">View</option>
               </select>
 
   <br>  <label>Supplier</label></br>
@@ -113,6 +122,7 @@
         <option value="AddSupplier">Add</option>
         <option value="EditSupplier">Edit</option>
         <option value="DeleteSupplier">Delete</option>
+        <option value="ViewSupplier">View</option>
               </select>
   
       </form>

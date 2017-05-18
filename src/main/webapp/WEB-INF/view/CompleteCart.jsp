@@ -4,11 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<script src="js/bootstrap.min.js"></script>
+<title>Finish</title>
 </head>
 <body>
-<h1><p>Your Process is Completed.......</p></h1>
-<marquee><strong></strong>Thank You for Shopping with Us<strong></strong></marquee>
-
+<jsp:include page="CommonHeader.jsp"></jsp:include>
+<div class="center">
+ <h1> <p>Your Order is Successfully Placed.......</p></h1>
+<marquee><strong></strong><h2>Thank You for Shopping with Us</h2><strong></strong></marquee> 
+</div>
+ <div class="center">  
+        <img src="resources/images/thk.png" width="500" height="500">  
+      </div>  
+ 
+<jsp:include page="CommonFooter.jsp"></jsp:include>
 </body>
 </html>

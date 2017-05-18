@@ -64,7 +64,7 @@ public class CartController {
 		System.out.println(uid);
 		
 	List<MyCart> showcartlist=cartDAO.getAllCartDetails(uid);
-	System.out.println(showcartlist);
+	//System.out.println(showcartlist);
 		mv.addObject("showcartlist", showcartlist );
 		mv.addObject("myCart",myCart);
 		//int total = cartDAO.getProductTotal(uid);
@@ -72,17 +72,7 @@ public class CartController {
 		//mv.addObject("total", total);
 		return mv;
 	}
-	/*@RequestMapping(value="/MyCart",method=RequestMethod.GET)
-	public ModelAndView showMyCart()
-	{
-		ModelAndView mv = new ModelAndView("/MyCart/MyCart");
-		String uid = userController.getLogid();
-		mv.addObject("displayMyCart", cartDAO.getAllCartDetails(uid));
-		int total = cartDAO.getProductTotal(uid);
-		System.out.println(total);
-		mv.addObject("total", total);
-		return mv;
-	}*/
+	
 	
 	@Transactional
 	@RequestMapping(value="/validateaddCart",method=RequestMethod.GET)

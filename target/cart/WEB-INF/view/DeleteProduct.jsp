@@ -11,7 +11,7 @@
   
 
 
-<link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script src="Bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/valid.js"></script>
   
@@ -25,52 +25,6 @@ table, th, td {
   
 <body>
 
-<%-- <form:form action="validateDeleteProduct" method="POST"> --%>
-<!-- <div class="col-xs-6"> -->
-    
-    
-    
-<!--     <div class="input-group"> -->
-<!--     <span class="input-group-addon"> Product Id </span> -->
-<%--       <form:input type="text" class="form-control" path="proId" id="proId" placeholder="Enter Product ID"/> --%>
-<!--     </div> -->
-<!--     <br> -->
-<!--     <div class="input-group"> -->
-<!--       <span class="input-group-addon"> Product Name </span> -->
-<%--       <form:input type="text" class="form-control" path="proName" id="proName" placeholder="Enter Product Name"/> --%>
-<!--     </div> -->
-<!--     <br> -->
-    
-<!--     <div class="input-group"> -->
-<!--      <span class="input-group-addon"> Supplier ID </span> -->
-<%--       <form:input type="text" class="form-control" path="supId" id="supId" placeholder="Enter Supplier ID"/> --%>
-<!--     </div> -->
-<!--     <br> -->
-<!--         <div class="input-group"> -->
-<!--      <span class="input-group-addon"> Category ID </span> -->
-<%--       <form:input type="text" class="form-control" path="catId" id="catId" placeholder="Enter Category ID"/> --%>
-<!--     </div> -->
-<!--     <br> -->
-<!--     <div class="input-group"> -->
-<!--       <span class="input-group-addon"> Product Desc </span> -->
-<%--       <form:input type="text" class="form-control" path="proDesc" id="proDesc" placeholder="Enter Product Desc"/> --%>
-<!--     </div> -->
-<!--     <br> -->
-<!--     <div class="input-group"> -->
-<!-- 	<span class="input-group-addon"> Product Quantity </span> -->
-<%--       <form:input type="text" class="form-control" path="proQuan" id="proQuan" placeholder="Enter Product Quantity"/> --%>
-<!--     </div> -->
-<!--     <br> -->
-<!--     <div class="input-group"> -->
-<!--       <span class="input-group-addon"> Product Cost </span> -->
-<%--       <form:input type="text" class="form-control" path="proCost" id="proCost" placeholder="Enter Product cost"/> --%>
-<!--     </div> -->
-    
-<!--     <br> -->
-    
-<!--     <button type="submit" class="btn btn-danger"> Delete </button> -->
-    
-<!--     </div> -->
 <h1>Delete Product</h1>
 <div class="container">
   <h2>Available Products</h2>            
@@ -101,10 +55,7 @@ table, th, td {
         </tbody>
   </table>
 </div>
-<%--        </form:form> --%>
-<!--        <h2>Enter Product ID : </h2>
-<input type="text" class="form-control" path="proId" id="proId" placeholder="Enter Product ID"/ /> 
-<input type="submit" value="Del"> -->
+
 
   
  <form action="deleteProduct">
@@ -112,17 +63,6 @@ table, th, td {
 <input type="text" name="proId" path="proId" id="proId" placeholder="Enter Product ID" /> 
 <input type="submit" value="Delete">
 
-<%-- <%-- <form:form action="DeleteProduct" method="post" modelattribute="product"> --%> 
-<%-- Product ID:<form:input path="proId"/><br> --%>
-<%-- Product Name:<form:input path="proName"/><br> --%>
-<%-- Product Description:<form:input path="proDesc"/><br> --%>
-<%-- Supplier ID:<form:input path="supId"/><br> --%>
-<%-- Category ID:<form:input path="catId"/><br> --%>
-<%-- Product Quantity:<form:input path="proQuan"/><br> --%>
-<%-- Product Cost:<form:input path="proCost"/><br> --%>
-<!-- <input type="submit" value="Edit"> -->
-<%-- <%-- </form:form> --%> 
-<%-- </form> --%>
 
 </form>
  

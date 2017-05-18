@@ -3,6 +3,7 @@ package com.niit.shopcart.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
 @Entity
@@ -18,11 +19,15 @@ public class User {
 	
 
 	@Id
+	@Size(min=3,max=20)
 	private String id;
+	@Size(min=3,max=20)
 	
 	private String fname;
+	@Size(min=3,max=20)
 	private String lname;
 	private String email;
+	@Size(min=3,max=20)
 	private String password;
 	private String confirmpassword;
 	

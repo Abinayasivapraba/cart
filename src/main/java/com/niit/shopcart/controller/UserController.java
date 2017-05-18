@@ -81,12 +81,15 @@ public class UserController {
 				session.setAttribute("showAdmin", true);
 			}
 			mv = new ModelAndView("forward:/Home","command",new User());
+			
 			logid=id;
 			//mv.addObject("compareT", "Validation Success");
 			session.setAttribute("LogList", "true");
 			session.setAttribute("UID", "Welcome:" +id);
 			session.setAttribute("SUCC","Welcome:" +id);
 		}
+		
+		
 		return mv;
 	}
 	
@@ -174,30 +177,6 @@ public class UserController {
 		return mv;
 	}
 
-	/*@Transactional
-	@RequestMapping("ulist")
-	public ModelAndView showUserListLogin()
-	{
-		ModelAndView mv = new ModelAndView("/ValRegister","command",new User());
-		List<User> userList = fetchUserList();
-		user = userDAO.getUserById(logid);
-		mv.addObject("successList", userList);
-		mv.addObject("L", user);
-		session.removeAttribute("updateUser");
-		return mv;
-	}
-	@Transactional
-	@RequestMapping("ulist1")
-	public ModelAndView showUserListRegister()
-	{
-		ModelAndView mv = new ModelAndView("/ValRegister","command",new User());
-		List<User> userList = fetchUserList();
-		user = userDAO.getUserById(regid);
-		mv.addObject("successList", userList);
-		mv.addObject("L", user);
-		session.removeAttribute("updateUser");
-		return mv;
-	}*/
 	public List<User> fetchUserList()
 	{
 		List<User> list = new ArrayList<User>(userDAO.getAllUser());

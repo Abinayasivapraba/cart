@@ -81,16 +81,22 @@ public class CheckoutController {
 
 	@Transactional
 	@RequestMapping("/generatebill")
-	public ModelAndView generatebill()
+	public ModelAndView generatebill(Map<String, Object> map)
 	{
+		String path="D:\\Users\\Abinaya\\workspace\\cart\\src\\main\\webapp\\resources\\images\\";
 		String id= userController.getLogid();
 		boolean b=checkoutDAO.execute(id);
 		List<MyCart>list=checkoutDAO.getAllCartDetails(id);
 		List<Checkout> list1=checkoutDAO.getlist(id);
 		ModelAndView mv= new ModelAndView("/GenerateBillDetails");
 		
+
+
+		
 		mv.addObject("cartdetails",list);
 		mv.addObject("checkoutdetails", list1);
+		map.put("path", path);
+		mv.addObject("path", path);
 		double total=checkoutDAO.gettotal(id);
 		mv.addObject("checkouttotal", total);
 		

@@ -34,7 +34,7 @@
       <form:input type="number" class="form-control" id="contact" path="contact" placeholder="Enter your contactno"/><br><br>
      
       <label>ADDRESS:</label>
-      <form:textarea type="text" class="form-control" id="address" path="address" placeholder="Enter your Address" rows="8" ></form:textarea>
+      <form:textarea type="text" class="form-control" id="address" path="address" placeholder="Enter your Address" rows="4" ></form:textarea>
       
       <label>STATE:</label>
       <form:input type="text" class="form-control" id="state" path="state" placeholder="Enter your state name"/><br><br>
@@ -45,7 +45,7 @@
       <label>PINCODE:</label>
       <form:input type="number" class="form-control" id="pincode" path="pincode" placeholder="Enter your pincode"/><br><br> 
      
-      <br><br><center><button type="submit" class="btn btn-success">SUBMIT</button></center>
+      <center><button type="submit" class="btn btn-success">SUBMIT</button></center>
       </div>
     </form:form>
     </div>

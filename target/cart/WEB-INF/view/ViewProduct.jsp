@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">  
+  
 <%@ taglib  uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri= "http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 
@@ -15,9 +15,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   
 <title>Add a Product</title>
-<title>Insert title here</title>
+
 </head>
 <body>
+<h1>View Product</h1>
+<div class="container">
+  <h2>Available Products</h2>     
 <table class="table table-bordered">
     <thead>
       <tr>
@@ -28,25 +31,26 @@
         <th>Category Id</th>
         <th>Product Quantity</th>
         <th>Product Cost</th>
+        <th>Image</th>
       </tr>
     </thead>
     <tbody>
-    <c:forEach items="${prods}" var="pList">
+    <c:forEach items="${prList}" var="pList">
       <tr>
         <td><c:out value="${pList.proId}" /></td>
         <td><c:out value="${pList.proName}" /></td>
         <td><c:out value="${pList.proDesc}" /></td>
-        <td><c:out value="${pList.supId}" /></td>
-        <td><c:out value="${pList.catId}" /></td>
+        <td><c:out value="${pList.supid}" /></td>
+        <td><c:out value="${pList.catid}" /></td>
         <td><c:out value="${pList.proQuan}" /></td>
         <td><c:out value="${pList.proCost}" /></td>
-        <td><img src="${path}${pList.proId }.jpg" height="50"width="50"></td>
+         <td><img src="${path}${pList.proId }.jpg" height="50"width="50"></td> 
       </tr>
        </c:forEach>
     </tbody>
   </table>
-</div>
-</center>
+  </div>
+  
 
 </body>
 </html>

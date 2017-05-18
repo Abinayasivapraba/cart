@@ -86,28 +86,7 @@ public class ProductController {
 		return mv;
 }
 
-	/*@Transactional
-		
-		@RequestMapping("/selAddProduct")
 	
-		public ModelAndView showAddProduct()
-		{
-			ModelAndView mv=new ModelAndView("/AddProduct","command", new ProductModel());
-			return mv;
-		}	
-		
-		
-@Transactional		
-	@RequestMapping("/validateAddProduct") 
-
-	public ModelAndView showAddProductPage(@ModelAttribute ProductModel productModel)
-	{
-		
-		productDAO.save(productModel);
-		ModelAndView mv = new ModelAndView("/admin");
-		mv.addObject("SUCCESS", "Product gets added");
-		return mv;
-	}*/
 @Transactional
 	@RequestMapping("/selEditProduct")
 	public ModelAndView showEditProductPage(Map<String,Object> map)

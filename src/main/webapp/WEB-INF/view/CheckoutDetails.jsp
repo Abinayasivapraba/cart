@@ -53,7 +53,6 @@
   </table>
   </div>
 </div>
-<center><a href=# class="btn btn-success">EDIT DETAILS</a></center>
 <center><a href="generatebill" class="btn btn-primary">GENERATE BILL</a></center>
 <jsp:include page="CommonFooter.jsp"></jsp:include>
 

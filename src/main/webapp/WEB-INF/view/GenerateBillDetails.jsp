@@ -13,7 +13,7 @@
 <body>
 <jsp:include page="CommonHeader.jsp"></jsp:include>
 <div class="container">
-    <div class="" style="background-color:#9B9CB6;padding-top:2%;padding-bottom:1%;color:white;">
+    <%-- <div class="" style="background-color:#9B9CB6;padding-top:2%;padding-bottom:1%;color:white;">
         <div class="row">
             <div class="col-sm-12 col-lg-2">
                 <h4 class="h3" style="margin-top:-2%">
@@ -21,7 +21,8 @@
                 </h4>
             </div>
         </div>
-    </div>
+    </div> --%>
+    <h3><center> ADDRESS DETAILS</center></h3>
 </div>
 
 <div class="container">                                                                                     
@@ -53,7 +54,7 @@
        	 </c:forEach>
        	 </table>
 <div class="container">
-    <div class="" style="background-color:#9B9CB6;padding-top:2%;padding-bottom:1%;color:white;">
+    <%-- div class="" style="background-color:#9B9CB6;padding-top:2%;padding-bottom:1%;color:white;">
         <div class="row">
             <div class="col-sm-2">
                 <h4 class="h3" style="margin-top:-2%">
@@ -61,7 +62,8 @@
                 </h4>
             </div>
         </div>
-    </div>
+    </div> --%>
+    <h3><center> BILL DETAILS</center></h3>
 </div>
        	 
        	 
@@ -69,6 +71,8 @@
     <thead >
        <tr >
        	<th >PRODUCT NAME</th>
+       	<!-- <th >PRODUCT IMAGE</th> -->
+         
          
         <th>QUANTITY</th>
         <th>COST</th> 
@@ -80,22 +84,23 @@
      <tr>
      
         <td>${list.proName}</td>
-        <%-- <td><img src="images/${list.proId}.jpg" height="75"></td> 
-        <td><img src="${path}${list.proId}.jpg" alt="${list.proId}" height="75"></td> --%>
+        
         <td>${list.proQuan}</td>
         <td>${list.proCost}</td>
         <td>${list.dateadded}</td> 
        </tr>
     </tbody>
     </c:forEach>
-    <tr>
+   <%--  <tr>
   	<td colspan="3" Style="text-align:right">Total</td>
   	<td><b>${checkouttotal}</b></td>
-  	</tr>
+  	</tr> --%>
   </table>
+  <a href="Finish"><button type="button" class="btn btn-primary">Finish</button></a>
+
   </div>
 </div>
-<a href="Finish">Finish</a>
+
 <jsp:include page="CommonFooter.jsp"></jsp:include>
 </body>
 </html>

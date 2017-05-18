@@ -73,20 +73,7 @@ public class CategoryController {
 		}
 
 
-		/*@Transactional
-		@RequestMapping("/selDeleteCategory")
-		public ModelAndView showdeleteCategoryPage()
-		{
-			ModelAndView mv=new ModelAndView("/DeleteCategory");
-			return mv;
-		}
-		@Transactional
-		@RequestMapping("/DeleteCategory")
-		public ModelAndView deleteCategory(@RequestParam("catid") int catid)
-		{
-			categoryDAO.delete(catid);
-			ModelAndView mv=new ModelAndView("/admin");
-			return mv;*/
+		
 		@Transactional
 		@RequestMapping("/selDeleteCategory")
 		public ModelAndView showDeleteCategoryPage(Map<String, Object> map)
@@ -105,6 +92,16 @@ public class CategoryController {
 			return mv;
 
 		}
+		@Transactional
+		@RequestMapping("/selViewCategory")
+		public ModelAndView showViewCategory(Map<String, Object> map)
+		{
+			List<Category> catList=categoryDAO.getAllCategory();
+			map.put("caList", catList );
+			ModelAndView mv=new ModelAndView("/ViewCategory",map);
+			return mv;
+		}
+		
 
 
 }

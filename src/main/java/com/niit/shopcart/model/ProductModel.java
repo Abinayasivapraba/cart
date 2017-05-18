@@ -1,20 +1,26 @@
 package com.niit.shopcart.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 @Entity
 @Component
-@Table(name="ProductModel")
+@Table(name="PRODUCTMODEL")
 public class ProductModel {
 	
-	//@GeneratedValue(strategy= GenerationType.AUTO,generator="proId") 
+
 	
 	@Transient
 	MultipartFile pimage;
@@ -45,16 +51,23 @@ public class ProductModel {
 	private Category category;
 */	
 	
-
+@Size(min=3,max=20)
 	String proName;
+@Max(value=1000)
 	int supid;
+@Max(value=1000)
 	int catid;
+
 	String proDesc;
+	@Min(value=2)
 	int proQuan;
+	@Min(value=7)
 	int proCost;
+	@Column(name="PROID")
+	@GeneratedValue(strategy= GenerationType.AUTO) 
 	@Id
 	int proId;
-	@Column(name="PROID")
+	
 	public int getProId() {
 		return proId;
 	}

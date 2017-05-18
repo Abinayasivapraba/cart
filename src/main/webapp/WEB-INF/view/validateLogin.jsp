@@ -8,7 +8,7 @@
 </head>
 <body>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<title>Fashion Store</title>
+<title>Login</title>
 </head>
 <body>
 <center>

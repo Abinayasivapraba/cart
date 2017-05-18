@@ -75,22 +75,7 @@ public class SupplierController {
 	}
 
 
-	/*@Transactional
-	@RequestMapping("/selDeleteSupplier")
-	public ModelAndView deleteSupplierFunc()
-	{
-		ModelAndView mv=new ModelAndView("/DeleteSupplier");
-		return mv;
-	}
-	@Transactional
-	@RequestMapping("/DeleteSupplier")
-	public ModelAndView deleteSupplier(@RequestParam("supid") int supid)
-	{
-		supplierDAO.delete(supid);
-		ModelAndView mv=new ModelAndView("/admin");
-		return mv;
-
-	}*/
+	
 
 	@Transactional
 	@RequestMapping("/selDeleteSupplier")
@@ -109,6 +94,15 @@ public class SupplierController {
 		ModelAndView mv=new ModelAndView("/admin","command", new Supplier() );
 		return mv;
 
+	}
+	@Transactional
+	@RequestMapping("/selViewSupplier")
+	public ModelAndView showViewSupplier(Map<String, Object> map)
+	{
+		List<Supplier> suppList=supplierDAO.getAllSupplier();
+		map.put("supList", suppList );
+		ModelAndView mv=new ModelAndView("/ViewSupplier",map);
+		return mv;
 	}
 
 

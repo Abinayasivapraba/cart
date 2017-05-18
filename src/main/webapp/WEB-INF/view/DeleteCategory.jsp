@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@ taglib  uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-  <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script src="Bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/valid.js"></script>
   

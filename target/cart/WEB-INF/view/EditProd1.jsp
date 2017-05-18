@@ -51,19 +51,61 @@ table, th, td {
 <br>
 <br>
 <form:form action="Editproduct" method="post" modelattribute="product">
- Product ID:<input type="text" path="proId" id="proId" name="proId" value="${prFound.proId}" disbled="disabled"  >
-<input type="text" id="proId" name="proId" value="${prFound.proId}"><br>
-Product Name:<input type="text" path="proName" id="proName" name="proName" value="${prFound.proName}" disbled="disabled">
-Product Description:<input type="text" path="proDesc"  id="proDesc" name="proDesc" value="${prFound.proDesc}" disbled="disabled">
-Supplier ID:<input type="text" id="supid" path="supid" name="supid" value="${prFound.supid}" disbled="disabled">
-Category ID:<input type="text" id="catid" path="catid" name="catid" value="${prFound.catid}" disbled="disabled">
-Product Quantity:<input type="text" path="proQuan" name="proQuan" id="proQuan" value="${prFound.proQuan}"><br>
-Product Cost:<input type="text" path="proCost" name="proCost" id="proCost" value="${prFound.proCost}"><br>
-<input type="submit" value="Edit"> 
+<div class="col-xs-4">
+    <div class="input-group">
+<span class="input-group-addon"> Product Id </span>
+<input type="text" value="${prFound.proId}" disabled="disabled">
+<input type="hidden" id="proId" name="proId" value="${prFound.proId}">
+</div>
+    <br>
+ <div class="input-group">
+<span class="input-group-addon"> Product Name </span>
+<input type="text" value="${prFound.proName}" disabled="disabled">
+<input type="hidden" id="proName" name="proName" value="${prFound.proName}">
+</div>
+<br>
 
+<div class="input-group">
+<span class="input-group-addon"> Product Description </span>
+<input type="text" value="${prFound.proDesc}" disabled="disabled">
+<input type="hidden" id="proDesc" name="proDesc" value="${prFound.proDesc}">
+</div>
+<br>
+
+
+<div class="input-group">
+<span class="input-group-addon">Supplier ID </span>
+<input type="text" value="${prFound.supid}" disabled="disabled">
+<input type="hidden" id="supid" name="suppid" value="${prFound.supid}">
+</div>
+<br>
+
+<div class="input-group">
+<span class="input-group-addon">Category ID</span>
+<input type="text" value="${prFound.catid}" disabled="disabled">
+<input type="hidden" id="catid" name="catid" value="${prFound.catid}">
+</div>
+<br>
+
+<div class="input-group">
+<span class="input-group-addon">Product Quantity </span>
+<form:input path="proQuan"/><br>
+</div>
+<br>
+
+<div class="input-group">
+<span class="input-group-addon">Product Cost </span>
+<form:input path="proCost"/><br>
+</div>
+<br>
+
+ <form:button type="submit" class="btn btn-success">Update</form:button>
 
 </form:form>
 </center>
+
+
+
 
 
 </body>
