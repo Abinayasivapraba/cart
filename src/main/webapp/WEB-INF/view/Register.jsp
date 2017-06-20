@@ -60,7 +60,7 @@
 									</div>
 									<div class="form-row">
 										<div class='col-xs-6 form-group'>
-											<form:input type="text" path="id" name="id" id="id"  class="form-control" placeholder="User ID" aria-describedby="userHelpInline"/>
+											<form:input type="text" path="id" name="id" id="id"  class="form-control" required="required" placeholder="User ID" aria-describedby="userHelpInline"/>
 											<small id="userHelpInline" class="text-muted">
 												<p>${compareUF }</p>
 												<p>${RUID }</p>
@@ -76,14 +76,14 @@
 									</div>
 									<div class="form-row">
 										<div class='col-xs-6 form-group'>
-											<form:input type="password" path="password" name="password" id="password"  class="form-control" placeholder="Password" aria-describedby="passHelpInline"/>
+											<form:input type="password" path="password" name="password" id="password" required="required" class="form-control" placeholder="Password" aria-describedby="passHelpInline"/>
 											<small id="passHelpInline" class="text-muted">
 												<p>${RPSW }</p>
 												<p>${comparePSW }</p>												
 										    </small>
 										</div>
 										<div class='col-xs-6 form-group'>
-											<form:input type="password" path="confirmpassword" name="confirmpassword" id="confirmpassword"  class="form-control" placeholder="Confirm Password" aria-describedby="cpassHelpInline"/>
+											<form:input type="password" path="confirmpassword" name="confirmpassword" required="required" id="confirmpassword"  class="form-control" placeholder="Confirm Password" aria-describedby="cpassHelpInline"/>
 											<small id="cpassHelpInline" class="text-muted">
 										    	<p>${RCPSW }</p>
 										    </small>

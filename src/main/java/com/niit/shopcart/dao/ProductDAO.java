@@ -21,6 +21,10 @@ public interface ProductDAO {
 			
 			//get product by name
 			public ProductModel getproductModelByName(String proName);
+			
+			public ProductModel getProductById(int proId);
+			
+			
 
 	
 	

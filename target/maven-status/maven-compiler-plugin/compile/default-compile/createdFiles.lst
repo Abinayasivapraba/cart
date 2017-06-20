@@ -2,6 +2,7 @@ com\niit\shopcart\dao\impl\UserDAOImpl.class
 com\niit\shopcart\controller\CartController.class
 com\niit\shopcart\dao\UserDAO.class
 com\niit\shopcart\controller\CheckoutController.class
+com\niit\shopcart\exception\CartExceptionHandler.class
 com\niit\shopcart\model\ProductModel.class
 com\niit\shopcart\controller\HomeController.class
 com\niit\shopcart\controller\SupplierController.class

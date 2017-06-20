@@ -13,6 +13,7 @@ import com.niit.shopcart.model.ProductModel;
 @EnableTransactionManagement
 @Repository("productDAO")
 public class ProductDAOImpl implements ProductDAO {
+	
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -38,12 +39,14 @@ public class ProductDAOImpl implements ProductDAO {
 		
 		try {
 			sessionFactory.getCurrentSession().save(productModel);
+			return true;
 		} catch (Exception e) {
 			
 			e.printStackTrace();
+			return false;
 		}
 		
-		return false;
+		
 	}
 
 	public boolean update(ProductModel productModel) {
@@ -52,6 +55,7 @@ public class ProductDAOImpl implements ProductDAO {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
+		
 		}
 		
 		
@@ -89,6 +93,13 @@ public class ProductDAOImpl implements ProductDAO {
 		return (ProductModel) sessionFactory.getCurrentSession().createQuery("from ProductModel where proname ='"+ proName +"'" ).list().get(0);
 		
 		
+	}
+
+
+
+	public ProductModel getProductById(int proId) {
+		return (ProductModel)	sessionFactory.getCurrentSession().get(ProductModel.class, proId);
+
 	}
 
 
